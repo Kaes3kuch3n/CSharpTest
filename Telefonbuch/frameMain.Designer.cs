@@ -37,6 +37,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.toolTipButtons = new System.Windows.Forms.ToolTip(this.components);
             this.btnOpenPicture = new System.Windows.Forms.Button();
+            this.imageListButtonsSmall = new System.Windows.Forms.ImageList(this.components);
             this.tabControlContactInfos = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
             this.groupBoxBirthday = new System.Windows.Forms.GroupBox();
@@ -59,6 +60,10 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.tabPageNumbers = new System.Windows.Forms.TabPage();
+            this.btnDelNumber4 = new System.Windows.Forms.Button();
+            this.btnDelNumber3 = new System.Windows.Forms.Button();
+            this.btnDelNumber2 = new System.Windows.Forms.Button();
+            this.btnDelNumber1 = new System.Windows.Forms.Button();
             this.cbNumber4 = new System.Windows.Forms.ComboBox();
             this.lblSlash4 = new System.Windows.Forms.Label();
             this.txtNumber4 = new System.Windows.Forms.TextBox();
@@ -84,33 +89,42 @@
             this.txtCC1 = new System.Windows.Forms.MaskedTextBox();
             this.lblNumber1 = new System.Windows.Forms.Label();
             this.tabPageAddress = new System.Windows.Forms.TabPage();
+            this.groupBoxAddress2 = new System.Windows.Forms.GroupBox();
+            this.txtWorkName = new System.Windows.Forms.TextBox();
+            this.lblWorkName = new System.Windows.Forms.Label();
+            this.txtStreet2 = new System.Windows.Forms.TextBox();
+            this.txtZipCode2 = new System.Windows.Forms.TextBox();
+            this.txtCountry2 = new System.Windows.Forms.TextBox();
+            this.txtCity2 = new System.Windows.Forms.TextBox();
+            this.lblStreet2 = new System.Windows.Forms.Label();
+            this.lblCity2 = new System.Windows.Forms.Label();
+            this.txtHouseNumber2 = new System.Windows.Forms.TextBox();
+            this.lblZipCode2 = new System.Windows.Forms.Label();
+            this.lblCountry2 = new System.Windows.Forms.Label();
+            this.lblHouseNumber2 = new System.Windows.Forms.Label();
+            this.groupBoxAddress1 = new System.Windows.Forms.GroupBox();
             this.txtStreet = new System.Windows.Forms.TextBox();
-            this.txtCountry = new System.Windows.Forms.TextBox();
-            this.lblStreet = new System.Windows.Forms.Label();
-            this.txtNumber = new System.Windows.Forms.TextBox();
-            this.lblCountry = new System.Windows.Forms.Label();
-            this.lblNumber = new System.Windows.Forms.Label();
-            this.lblZipCode = new System.Windows.Forms.Label();
-            this.lblCity = new System.Windows.Forms.Label();
-            this.txtCity = new System.Windows.Forms.TextBox();
             this.txtZipCode = new System.Windows.Forms.TextBox();
+            this.txtCountry = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.lblStreet = new System.Windows.Forms.Label();
+            this.lblCity = new System.Windows.Forms.Label();
+            this.txtHouseNumber = new System.Windows.Forms.TextBox();
+            this.lblZipCode = new System.Windows.Forms.Label();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.lblHouseNumber = new System.Windows.Forms.Label();
             this.tabPageOther = new System.Windows.Forms.TabPage();
             this.txtNotes = new System.Windows.Forms.RichTextBox();
             this.lblNotes = new System.Windows.Forms.Label();
             this.groupBoxEmail = new System.Windows.Forms.GroupBox();
+            this.btnDelEmail2 = new System.Windows.Forms.Button();
+            this.btnDelEmail1 = new System.Windows.Forms.Button();
             this.cbEmail2 = new System.Windows.Forms.ComboBox();
             this.cbEmail1 = new System.Windows.Forms.ComboBox();
             this.txtEmail2 = new System.Windows.Forms.TextBox();
             this.txtEmail1 = new System.Windows.Forms.TextBox();
             this.lblEmail2 = new System.Windows.Forms.Label();
             this.lblEmail1 = new System.Windows.Forms.Label();
-            this.imageListButtonsSmall = new System.Windows.Forms.ImageList(this.components);
-            this.btnDelNumber1 = new System.Windows.Forms.Button();
-            this.btnDelNumber2 = new System.Windows.Forms.Button();
-            this.btnDelNumber3 = new System.Windows.Forms.Button();
-            this.btnDelNumber4 = new System.Windows.Forms.Button();
-            this.btnDelEmail1 = new System.Windows.Forms.Button();
-            this.btnDelEmail2 = new System.Windows.Forms.Button();
             this.tabControlContactInfos.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBoxBirthday.SuspendLayout();
@@ -119,6 +133,8 @@
             this.groupBoxGender.SuspendLayout();
             this.tabPageNumbers.SuspendLayout();
             this.tabPageAddress.SuspendLayout();
+            this.groupBoxAddress2.SuspendLayout();
+            this.groupBoxAddress1.SuspendLayout();
             this.tabPageOther.SuspendLayout();
             this.groupBoxEmail.SuspendLayout();
             this.SuspendLayout();
@@ -166,6 +182,7 @@
             this.toolTipButtons.SetToolTip(this.btnPreview, "Vorschau anzeigen");
             this.btnPreview.UseVisualStyleBackColor = true;
             this.btnPreview.Visible = false;
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
             // btnSave
             // 
@@ -190,6 +207,13 @@
             this.toolTipButtons.SetToolTip(this.btnOpenPicture, "Kontaktbild auswählen");
             this.btnOpenPicture.UseVisualStyleBackColor = true;
             this.btnOpenPicture.Click += new System.EventHandler(this.btnOpenPicture_Click);
+            // 
+            // imageListButtonsSmall
+            // 
+            this.imageListButtonsSmall.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListButtonsSmall.ImageStream")));
+            this.imageListButtonsSmall.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListButtonsSmall.Images.SetKeyName(0, "delete.png");
+            this.imageListButtonsSmall.Images.SetKeyName(1, "camera.png");
             // 
             // tabControlContactInfos
             // 
@@ -449,6 +473,50 @@
             this.tabPageNumbers.Text = "Telefonnummern";
             this.tabPageNumbers.UseVisualStyleBackColor = true;
             // 
+            // btnDelNumber4
+            // 
+            this.btnDelNumber4.ImageIndex = 0;
+            this.btnDelNumber4.ImageList = this.imageListButtonsSmall;
+            this.btnDelNumber4.Location = new System.Drawing.Point(588, 282);
+            this.btnDelNumber4.Name = "btnDelNumber4";
+            this.btnDelNumber4.Size = new System.Drawing.Size(23, 23);
+            this.btnDelNumber4.TabIndex = 27;
+            this.btnDelNumber4.UseVisualStyleBackColor = true;
+            this.btnDelNumber4.Click += new System.EventHandler(this.btnDeleteClicked);
+            // 
+            // btnDelNumber3
+            // 
+            this.btnDelNumber3.ImageIndex = 0;
+            this.btnDelNumber3.ImageList = this.imageListButtonsSmall;
+            this.btnDelNumber3.Location = new System.Drawing.Point(588, 241);
+            this.btnDelNumber3.Name = "btnDelNumber3";
+            this.btnDelNumber3.Size = new System.Drawing.Size(23, 23);
+            this.btnDelNumber3.TabIndex = 26;
+            this.btnDelNumber3.UseVisualStyleBackColor = true;
+            this.btnDelNumber3.Click += new System.EventHandler(this.btnDeleteClicked);
+            // 
+            // btnDelNumber2
+            // 
+            this.btnDelNumber2.ImageIndex = 0;
+            this.btnDelNumber2.ImageList = this.imageListButtonsSmall;
+            this.btnDelNumber2.Location = new System.Drawing.Point(588, 200);
+            this.btnDelNumber2.Name = "btnDelNumber2";
+            this.btnDelNumber2.Size = new System.Drawing.Size(23, 23);
+            this.btnDelNumber2.TabIndex = 25;
+            this.btnDelNumber2.UseVisualStyleBackColor = true;
+            this.btnDelNumber2.Click += new System.EventHandler(this.btnDeleteClicked);
+            // 
+            // btnDelNumber1
+            // 
+            this.btnDelNumber1.ImageIndex = 0;
+            this.btnDelNumber1.ImageList = this.imageListButtonsSmall;
+            this.btnDelNumber1.Location = new System.Drawing.Point(588, 159);
+            this.btnDelNumber1.Name = "btnDelNumber1";
+            this.btnDelNumber1.Size = new System.Drawing.Size(23, 23);
+            this.btnDelNumber1.TabIndex = 24;
+            this.btnDelNumber1.UseVisualStyleBackColor = true;
+            this.btnDelNumber1.Click += new System.EventHandler(this.btnDeleteClicked);
+            // 
             // cbNumber4
             // 
             this.cbNumber4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -675,16 +743,8 @@
             // 
             // tabPageAddress
             // 
-            this.tabPageAddress.Controls.Add(this.txtStreet);
-            this.tabPageAddress.Controls.Add(this.txtCountry);
-            this.tabPageAddress.Controls.Add(this.lblStreet);
-            this.tabPageAddress.Controls.Add(this.txtNumber);
-            this.tabPageAddress.Controls.Add(this.lblCountry);
-            this.tabPageAddress.Controls.Add(this.lblNumber);
-            this.tabPageAddress.Controls.Add(this.lblZipCode);
-            this.tabPageAddress.Controls.Add(this.lblCity);
-            this.tabPageAddress.Controls.Add(this.txtCity);
-            this.tabPageAddress.Controls.Add(this.txtZipCode);
+            this.tabPageAddress.Controls.Add(this.groupBoxAddress2);
+            this.tabPageAddress.Controls.Add(this.groupBoxAddress1);
             this.tabPageAddress.Location = new System.Drawing.Point(4, 22);
             this.tabPageAddress.Name = "tabPageAddress";
             this.tabPageAddress.Padding = new System.Windows.Forms.Padding(3);
@@ -693,85 +753,221 @@
             this.tabPageAddress.Text = "Adresse";
             this.tabPageAddress.UseVisualStyleBackColor = true;
             // 
+            // groupBoxAddress2
+            // 
+            this.groupBoxAddress2.Controls.Add(this.txtWorkName);
+            this.groupBoxAddress2.Controls.Add(this.lblWorkName);
+            this.groupBoxAddress2.Controls.Add(this.txtStreet2);
+            this.groupBoxAddress2.Controls.Add(this.txtZipCode2);
+            this.groupBoxAddress2.Controls.Add(this.txtCountry2);
+            this.groupBoxAddress2.Controls.Add(this.txtCity2);
+            this.groupBoxAddress2.Controls.Add(this.lblStreet2);
+            this.groupBoxAddress2.Controls.Add(this.lblCity2);
+            this.groupBoxAddress2.Controls.Add(this.txtHouseNumber2);
+            this.groupBoxAddress2.Controls.Add(this.lblZipCode2);
+            this.groupBoxAddress2.Controls.Add(this.lblCountry2);
+            this.groupBoxAddress2.Controls.Add(this.lblHouseNumber2);
+            this.groupBoxAddress2.Location = new System.Drawing.Point(32, 223);
+            this.groupBoxAddress2.Name = "groupBoxAddress2";
+            this.groupBoxAddress2.Size = new System.Drawing.Size(693, 210);
+            this.groupBoxAddress2.TabIndex = 11;
+            this.groupBoxAddress2.TabStop = false;
+            this.groupBoxAddress2.Text = "Arbeit";
+            // 
+            // txtWorkName
+            // 
+            this.txtWorkName.Location = new System.Drawing.Point(204, 35);
+            this.txtWorkName.Name = "txtWorkName";
+            this.txtWorkName.Size = new System.Drawing.Size(331, 20);
+            this.txtWorkName.TabIndex = 11;
+            // 
+            // lblWorkName
+            // 
+            this.lblWorkName.AutoSize = true;
+            this.lblWorkName.Location = new System.Drawing.Point(157, 38);
+            this.lblWorkName.Name = "lblWorkName";
+            this.lblWorkName.Size = new System.Drawing.Size(35, 13);
+            this.lblWorkName.TabIndex = 10;
+            this.lblWorkName.Text = "Firma:";
+            // 
+            // txtStreet2
+            // 
+            this.txtStreet2.Location = new System.Drawing.Point(204, 75);
+            this.txtStreet2.Name = "txtStreet2";
+            this.txtStreet2.Size = new System.Drawing.Size(245, 20);
+            this.txtStreet2.TabIndex = 1;
+            // 
+            // txtZipCode2
+            // 
+            this.txtZipCode2.Location = new System.Drawing.Point(204, 115);
+            this.txtZipCode2.Name = "txtZipCode2";
+            this.txtZipCode2.Size = new System.Drawing.Size(70, 20);
+            this.txtZipCode2.TabIndex = 5;
+            // 
+            // txtCountry2
+            // 
+            this.txtCountry2.Location = new System.Drawing.Point(204, 155);
+            this.txtCountry2.Name = "txtCountry2";
+            this.txtCountry2.Size = new System.Drawing.Size(331, 20);
+            this.txtCountry2.TabIndex = 9;
+            // 
+            // txtCity2
+            // 
+            this.txtCity2.Location = new System.Drawing.Point(335, 115);
+            this.txtCity2.Name = "txtCity2";
+            this.txtCity2.Size = new System.Drawing.Size(200, 20);
+            this.txtCity2.TabIndex = 7;
+            // 
+            // lblStreet2
+            // 
+            this.lblStreet2.AutoSize = true;
+            this.lblStreet2.Location = new System.Drawing.Point(157, 78);
+            this.lblStreet2.Name = "lblStreet2";
+            this.lblStreet2.Size = new System.Drawing.Size(41, 13);
+            this.lblStreet2.TabIndex = 0;
+            this.lblStreet2.Text = "Straße:";
+            // 
+            // lblCity2
+            // 
+            this.lblCity2.AutoSize = true;
+            this.lblCity2.Location = new System.Drawing.Point(294, 118);
+            this.lblCity2.Name = "lblCity2";
+            this.lblCity2.Size = new System.Drawing.Size(35, 13);
+            this.lblCity2.TabIndex = 6;
+            this.lblCity2.Text = "Stadt:";
+            // 
+            // txtHouseNumber2
+            // 
+            this.txtHouseNumber2.Location = new System.Drawing.Point(485, 75);
+            this.txtHouseNumber2.Name = "txtHouseNumber2";
+            this.txtHouseNumber2.Size = new System.Drawing.Size(50, 20);
+            this.txtHouseNumber2.TabIndex = 3;
+            // 
+            // lblZipCode2
+            // 
+            this.lblZipCode2.AutoSize = true;
+            this.lblZipCode2.Location = new System.Drawing.Point(157, 118);
+            this.lblZipCode2.Name = "lblZipCode2";
+            this.lblZipCode2.Size = new System.Drawing.Size(30, 13);
+            this.lblZipCode2.TabIndex = 2;
+            this.lblZipCode2.Text = "PLZ:";
+            // 
+            // lblCountry2
+            // 
+            this.lblCountry2.AutoSize = true;
+            this.lblCountry2.Location = new System.Drawing.Point(157, 158);
+            this.lblCountry2.Name = "lblCountry2";
+            this.lblCountry2.Size = new System.Drawing.Size(34, 13);
+            this.lblCountry2.TabIndex = 8;
+            this.lblCountry2.Text = "Land:";
+            // 
+            // lblHouseNumber2
+            // 
+            this.lblHouseNumber2.AutoSize = true;
+            this.lblHouseNumber2.Location = new System.Drawing.Point(455, 78);
+            this.lblHouseNumber2.Name = "lblHouseNumber2";
+            this.lblHouseNumber2.Size = new System.Drawing.Size(24, 13);
+            this.lblHouseNumber2.TabIndex = 4;
+            this.lblHouseNumber2.Text = "Nr.:";
+            // 
+            // groupBoxAddress1
+            // 
+            this.groupBoxAddress1.Controls.Add(this.txtStreet);
+            this.groupBoxAddress1.Controls.Add(this.txtZipCode);
+            this.groupBoxAddress1.Controls.Add(this.txtCountry);
+            this.groupBoxAddress1.Controls.Add(this.txtCity);
+            this.groupBoxAddress1.Controls.Add(this.lblStreet);
+            this.groupBoxAddress1.Controls.Add(this.lblCity);
+            this.groupBoxAddress1.Controls.Add(this.txtHouseNumber);
+            this.groupBoxAddress1.Controls.Add(this.lblZipCode);
+            this.groupBoxAddress1.Controls.Add(this.lblCountry);
+            this.groupBoxAddress1.Controls.Add(this.lblHouseNumber);
+            this.groupBoxAddress1.Location = new System.Drawing.Point(28, 40);
+            this.groupBoxAddress1.Name = "groupBoxAddress1";
+            this.groupBoxAddress1.Size = new System.Drawing.Size(693, 170);
+            this.groupBoxAddress1.TabIndex = 10;
+            this.groupBoxAddress1.TabStop = false;
+            this.groupBoxAddress1.Text = "Privat";
+            // 
             // txtStreet
             // 
-            this.txtStreet.Location = new System.Drawing.Point(234, 187);
+            this.txtStreet.Location = new System.Drawing.Point(204, 35);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(245, 20);
             this.txtStreet.TabIndex = 1;
             // 
+            // txtZipCode
+            // 
+            this.txtZipCode.Location = new System.Drawing.Point(204, 75);
+            this.txtZipCode.Name = "txtZipCode";
+            this.txtZipCode.Size = new System.Drawing.Size(70, 20);
+            this.txtZipCode.TabIndex = 5;
+            // 
             // txtCountry
             // 
-            this.txtCountry.Location = new System.Drawing.Point(234, 267);
+            this.txtCountry.Location = new System.Drawing.Point(204, 115);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(331, 20);
             this.txtCountry.TabIndex = 9;
             // 
+            // txtCity
+            // 
+            this.txtCity.Location = new System.Drawing.Point(335, 75);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(200, 20);
+            this.txtCity.TabIndex = 7;
+            // 
             // lblStreet
             // 
             this.lblStreet.AutoSize = true;
-            this.lblStreet.Location = new System.Drawing.Point(187, 190);
+            this.lblStreet.Location = new System.Drawing.Point(157, 38);
             this.lblStreet.Name = "lblStreet";
             this.lblStreet.Size = new System.Drawing.Size(41, 13);
             this.lblStreet.TabIndex = 0;
             this.lblStreet.Text = "Straße:";
             // 
-            // txtNumber
-            // 
-            this.txtNumber.Location = new System.Drawing.Point(515, 187);
-            this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Size = new System.Drawing.Size(50, 20);
-            this.txtNumber.TabIndex = 3;
-            // 
-            // lblCountry
-            // 
-            this.lblCountry.AutoSize = true;
-            this.lblCountry.Location = new System.Drawing.Point(187, 270);
-            this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(34, 13);
-            this.lblCountry.TabIndex = 8;
-            this.lblCountry.Text = "Land:";
-            // 
-            // lblNumber
-            // 
-            this.lblNumber.AutoSize = true;
-            this.lblNumber.Location = new System.Drawing.Point(485, 190);
-            this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(24, 13);
-            this.lblNumber.TabIndex = 4;
-            this.lblNumber.Text = "Nr.:";
-            // 
-            // lblZipCode
-            // 
-            this.lblZipCode.AutoSize = true;
-            this.lblZipCode.Location = new System.Drawing.Point(187, 230);
-            this.lblZipCode.Name = "lblZipCode";
-            this.lblZipCode.Size = new System.Drawing.Size(30, 13);
-            this.lblZipCode.TabIndex = 2;
-            this.lblZipCode.Text = "PLZ:";
-            // 
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Location = new System.Drawing.Point(324, 230);
+            this.lblCity.Location = new System.Drawing.Point(294, 78);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(35, 13);
             this.lblCity.TabIndex = 6;
             this.lblCity.Text = "Stadt:";
             // 
-            // txtCity
+            // txtHouseNumber
             // 
-            this.txtCity.Location = new System.Drawing.Point(365, 227);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(200, 20);
-            this.txtCity.TabIndex = 7;
+            this.txtHouseNumber.Location = new System.Drawing.Point(485, 35);
+            this.txtHouseNumber.Name = "txtHouseNumber";
+            this.txtHouseNumber.Size = new System.Drawing.Size(50, 20);
+            this.txtHouseNumber.TabIndex = 3;
             // 
-            // txtZipCode
+            // lblZipCode
             // 
-            this.txtZipCode.Location = new System.Drawing.Point(234, 227);
-            this.txtZipCode.Name = "txtZipCode";
-            this.txtZipCode.Size = new System.Drawing.Size(70, 20);
-            this.txtZipCode.TabIndex = 5;
+            this.lblZipCode.AutoSize = true;
+            this.lblZipCode.Location = new System.Drawing.Point(157, 78);
+            this.lblZipCode.Name = "lblZipCode";
+            this.lblZipCode.Size = new System.Drawing.Size(30, 13);
+            this.lblZipCode.TabIndex = 2;
+            this.lblZipCode.Text = "PLZ:";
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.Location = new System.Drawing.Point(157, 118);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(34, 13);
+            this.lblCountry.TabIndex = 8;
+            this.lblCountry.Text = "Land:";
+            // 
+            // lblHouseNumber
+            // 
+            this.lblHouseNumber.AutoSize = true;
+            this.lblHouseNumber.Location = new System.Drawing.Point(455, 38);
+            this.lblHouseNumber.Name = "lblHouseNumber";
+            this.lblHouseNumber.Size = new System.Drawing.Size(24, 13);
+            this.lblHouseNumber.TabIndex = 4;
+            this.lblHouseNumber.Text = "Nr.:";
             // 
             // tabPageOther
             // 
@@ -819,6 +1015,28 @@
             this.groupBoxEmail.TabIndex = 0;
             this.groupBoxEmail.TabStop = false;
             this.groupBoxEmail.Text = "eMail";
+            // 
+            // btnDelEmail2
+            // 
+            this.btnDelEmail2.ImageIndex = 0;
+            this.btnDelEmail2.ImageList = this.imageListButtonsSmall;
+            this.btnDelEmail2.Location = new System.Drawing.Point(644, 60);
+            this.btnDelEmail2.Name = "btnDelEmail2";
+            this.btnDelEmail2.Size = new System.Drawing.Size(23, 23);
+            this.btnDelEmail2.TabIndex = 26;
+            this.btnDelEmail2.UseVisualStyleBackColor = true;
+            this.btnDelEmail2.Click += new System.EventHandler(this.btnDeleteClicked);
+            // 
+            // btnDelEmail1
+            // 
+            this.btnDelEmail1.ImageIndex = 0;
+            this.btnDelEmail1.ImageList = this.imageListButtonsSmall;
+            this.btnDelEmail1.Location = new System.Drawing.Point(644, 23);
+            this.btnDelEmail1.Name = "btnDelEmail1";
+            this.btnDelEmail1.Size = new System.Drawing.Size(23, 23);
+            this.btnDelEmail1.TabIndex = 25;
+            this.btnDelEmail1.UseVisualStyleBackColor = true;
+            this.btnDelEmail1.Click += new System.EventHandler(this.btnDeleteClicked);
             // 
             // cbEmail2
             // 
@@ -880,79 +1098,6 @@
             this.lblEmail1.TabIndex = 0;
             this.lblEmail1.Text = "#1:";
             // 
-            // imageListButtonsSmall
-            // 
-            this.imageListButtonsSmall.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListButtonsSmall.ImageStream")));
-            this.imageListButtonsSmall.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListButtonsSmall.Images.SetKeyName(0, "delete.png");
-            this.imageListButtonsSmall.Images.SetKeyName(1, "camera.png");
-            // 
-            // btnDelNumber1
-            // 
-            this.btnDelNumber1.ImageIndex = 0;
-            this.btnDelNumber1.ImageList = this.imageListButtonsSmall;
-            this.btnDelNumber1.Location = new System.Drawing.Point(588, 159);
-            this.btnDelNumber1.Name = "btnDelNumber1";
-            this.btnDelNumber1.Size = new System.Drawing.Size(23, 23);
-            this.btnDelNumber1.TabIndex = 24;
-            this.btnDelNumber1.UseVisualStyleBackColor = true;
-            this.btnDelNumber1.Click += new System.EventHandler(this.btnDeleteClicked);
-            // 
-            // btnDelNumber2
-            // 
-            this.btnDelNumber2.ImageIndex = 0;
-            this.btnDelNumber2.ImageList = this.imageListButtonsSmall;
-            this.btnDelNumber2.Location = new System.Drawing.Point(588, 200);
-            this.btnDelNumber2.Name = "btnDelNumber2";
-            this.btnDelNumber2.Size = new System.Drawing.Size(23, 23);
-            this.btnDelNumber2.TabIndex = 25;
-            this.btnDelNumber2.UseVisualStyleBackColor = true;
-            this.btnDelNumber2.Click += new System.EventHandler(this.btnDeleteClicked);
-            // 
-            // btnDelNumber3
-            // 
-            this.btnDelNumber3.ImageIndex = 0;
-            this.btnDelNumber3.ImageList = this.imageListButtonsSmall;
-            this.btnDelNumber3.Location = new System.Drawing.Point(588, 241);
-            this.btnDelNumber3.Name = "btnDelNumber3";
-            this.btnDelNumber3.Size = new System.Drawing.Size(23, 23);
-            this.btnDelNumber3.TabIndex = 26;
-            this.btnDelNumber3.UseVisualStyleBackColor = true;
-            this.btnDelNumber3.Click += new System.EventHandler(this.btnDeleteClicked);
-            // 
-            // btnDelNumber4
-            // 
-            this.btnDelNumber4.ImageIndex = 0;
-            this.btnDelNumber4.ImageList = this.imageListButtonsSmall;
-            this.btnDelNumber4.Location = new System.Drawing.Point(588, 282);
-            this.btnDelNumber4.Name = "btnDelNumber4";
-            this.btnDelNumber4.Size = new System.Drawing.Size(23, 23);
-            this.btnDelNumber4.TabIndex = 27;
-            this.btnDelNumber4.UseVisualStyleBackColor = true;
-            this.btnDelNumber4.Click += new System.EventHandler(this.btnDeleteClicked);
-            // 
-            // btnDelEmail1
-            // 
-            this.btnDelEmail1.ImageIndex = 0;
-            this.btnDelEmail1.ImageList = this.imageListButtonsSmall;
-            this.btnDelEmail1.Location = new System.Drawing.Point(644, 23);
-            this.btnDelEmail1.Name = "btnDelEmail1";
-            this.btnDelEmail1.Size = new System.Drawing.Size(23, 23);
-            this.btnDelEmail1.TabIndex = 25;
-            this.btnDelEmail1.UseVisualStyleBackColor = true;
-            this.btnDelEmail1.Click += new System.EventHandler(this.btnDeleteClicked);
-            // 
-            // btnDelEmail2
-            // 
-            this.btnDelEmail2.ImageIndex = 0;
-            this.btnDelEmail2.ImageList = this.imageListButtonsSmall;
-            this.btnDelEmail2.Location = new System.Drawing.Point(644, 60);
-            this.btnDelEmail2.Name = "btnDelEmail2";
-            this.btnDelEmail2.Size = new System.Drawing.Size(23, 23);
-            this.btnDelEmail2.TabIndex = 26;
-            this.btnDelEmail2.UseVisualStyleBackColor = true;
-            this.btnDelEmail2.Click += new System.EventHandler(this.btnDeleteClicked);
-            // 
             // frameMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -982,7 +1127,10 @@
             this.tabPageNumbers.ResumeLayout(false);
             this.tabPageNumbers.PerformLayout();
             this.tabPageAddress.ResumeLayout(false);
-            this.tabPageAddress.PerformLayout();
+            this.groupBoxAddress2.ResumeLayout(false);
+            this.groupBoxAddress2.PerformLayout();
+            this.groupBoxAddress1.ResumeLayout(false);
+            this.groupBoxAddress1.PerformLayout();
             this.tabPageOther.ResumeLayout(false);
             this.tabPageOther.PerformLayout();
             this.groupBoxEmail.ResumeLayout(false);
@@ -1049,9 +1197,9 @@
         private System.Windows.Forms.TextBox txtStreet;
         private System.Windows.Forms.TextBox txtCountry;
         private System.Windows.Forms.Label lblStreet;
-        private System.Windows.Forms.TextBox txtNumber;
+        private System.Windows.Forms.TextBox txtHouseNumber;
         private System.Windows.Forms.Label lblCountry;
-        private System.Windows.Forms.Label lblNumber;
+        private System.Windows.Forms.Label lblHouseNumber;
         private System.Windows.Forms.Label lblZipCode;
         private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.TextBox txtCity;
@@ -1074,6 +1222,20 @@
         private System.Windows.Forms.Button btnDelNumber1;
         private System.Windows.Forms.Button btnDelEmail2;
         private System.Windows.Forms.Button btnDelEmail1;
+        private System.Windows.Forms.GroupBox groupBoxAddress2;
+        private System.Windows.Forms.TextBox txtStreet2;
+        private System.Windows.Forms.TextBox txtZipCode2;
+        private System.Windows.Forms.TextBox txtCountry2;
+        private System.Windows.Forms.TextBox txtCity2;
+        private System.Windows.Forms.Label lblStreet2;
+        private System.Windows.Forms.Label lblCity2;
+        private System.Windows.Forms.TextBox txtHouseNumber2;
+        private System.Windows.Forms.Label lblZipCode2;
+        private System.Windows.Forms.Label lblCountry2;
+        private System.Windows.Forms.Label lblHouseNumber2;
+        private System.Windows.Forms.GroupBox groupBoxAddress1;
+        private System.Windows.Forms.TextBox txtWorkName;
+        private System.Windows.Forms.Label lblWorkName;
     }
 }
 

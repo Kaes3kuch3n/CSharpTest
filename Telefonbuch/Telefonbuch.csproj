@@ -51,10 +51,19 @@
     <Compile Include="frameMain.Designer.cs">
       <DependentUpon>frameMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="framePreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="framePreview.Designer.cs">
+      <DependentUpon>framePreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frameMain.resx">
       <DependentUpon>frameMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="framePreview.resx">
+      <DependentUpon>framePreview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
