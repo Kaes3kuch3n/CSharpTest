@@ -70,6 +70,10 @@ namespace Telefonbuch
             InitializeComponent();
         }
 
+        #region "Functions"
+
+        #region "GUI-Functions"
+
         //Button "Neuer Kontakt"
         private void btnNew_Click(object sender, EventArgs e)
         {
@@ -119,7 +123,7 @@ namespace Telefonbuch
             of.Filter = "Alle Bilder|*.bmp;*.gif;*.jpg;*.jpeg;*.jpe;*.jfif;*.png;*.tif;*.tiff|BMP|*.bmp|GIF|*.gif|JPG|*.jpg;*.jpeg;*.jpe;*.jfif|PNG|*.png|TIF|*.tif;*.tiff";
             of.FilterIndex = 0;
             DialogResult dr = of.ShowDialog();
-            
+
             if (dr == DialogResult.OK)
             {
                 imgContact = Image.FromFile(of.FileName);
@@ -249,7 +253,7 @@ namespace Telefonbuch
 
             fPre.lblEmailPH1.Text = prepareMailPreview(sEmail1, sEmailType1);
             fPre.lblEmailPH2.Text = prepareMailPreview(sEmail2, sEmailType2);
-            
+
             fPre.lblNumberPH1.Text = prepareNumbersPreview(sNumberType1, iCC1, iAC1, sNr1);
             fPre.lblNumberPH2.Text = prepareNumbersPreview(sNumberType2, iCC2, iAC2, sNr2);
             fPre.lblNumberPH3.Text = prepareNumbersPreview(sNumberType3, iCC3, iAC3, sNr3);
@@ -279,6 +283,10 @@ namespace Telefonbuch
 
             fPre.Show();
         }
+
+        #endregion
+
+        #region "Functions"
 
         //Check mail string for '@' and '.' chars
         string mailStringCheck(string mailAddress)
@@ -412,5 +420,10 @@ namespace Telefonbuch
                     return "-----";
             }
         }
+
+        #endregion
+
+        #endregion
+
     }
 }
