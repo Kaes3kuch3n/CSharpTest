@@ -57,6 +57,8 @@
     <Compile Include="formPreview.Designer.cs">
       <DependentUpon>formPreview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gender.cs" />
+    <Compile Include="Preview.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formMain.resx">

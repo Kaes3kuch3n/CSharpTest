@@ -44,18 +44,18 @@ namespace Telefonbuch
         string sNr2 = "";
         string sNr3 = "";
         string sNr4 = "";
+        string sCC1 = "";
+        string sCC2 = "";
+        string sCC3 = "";
+        string sCC4 = "";
+        string sAC1 = "";
+        string sAC2 = "";
+        string sAC3 = "";
+        string sAC4 = "";
         #endregion
 
         #region "Integers"
         int iGender;
-        int iCC1;
-        int iCC2;
-        int iCC3;
-        int iCC4;
-        int iAC1;
-        int iAC2;
-        int iAC3;
-        int iAC4;
         #endregion
 
         #region "Sonstiges"
@@ -288,19 +288,6 @@ namespace Telefonbuch
 
         #region "Functions"
 
-        //Check mail string for '@' and '.' chars
-        string mailStringCheck(string mailAddress)
-        {
-            if (mailAddress != "")
-            {
-                if (!mailAddress.Contains("@") || !mailAddress.Contains("."))
-                {
-                    MessageBox.Show("Eine der eingegebenen eMail-Adressen ist ungültig!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            return mailAddress;
-        }
-
         //Save form content to vars
         void saveVars()
         {
@@ -319,14 +306,23 @@ namespace Telefonbuch
             sZipCode2 = txtZipCode2.Text;
             sCity2 = txtCity2.Text;
             sCountry2 = txtCountry2.Text;
-            sEmail1 = mailStringCheck(txtEmail1.Text);
-            sEmail2 = mailStringCheck(txtEmail2.Text);
+            sEmail1 = txtEmail1.Text;
+            sEmail2 = txtEmail2.Text;
             sNotes = txtNotes.Text;
 
             sNr1 = txtNumber1.Text;
             sNr2 = txtNumber2.Text;
             sNr3 = txtNumber3.Text;
             sNr4 = txtNumber4.Text;
+            sCC1 = txtCC1.Text;
+            sCC2 = txtCC2.Text;
+            sCC3 = txtCC3.Text;
+            sCC4 = txtCC4.Text;
+            sAC1 = txtAC1.Text;
+            sAC2 = txtAC2.Text;
+            sAC3 = txtAC3.Text;
+            sAC4 = txtAC4.Text;
+
 
             if (rbFemale.Checked)
             {
@@ -339,23 +335,6 @@ namespace Telefonbuch
             else
             {
                 iGender = 2;
-            }
-
-            iCC1 = int.Parse(txtCC1.Text);
-            iCC2 = int.Parse(txtCC2.Text);
-            iCC3 = int.Parse(txtCC3.Text);
-            iCC4 = int.Parse(txtCC4.Text);
-
-            try
-            {
-                if (txtAC1.Text != "") iAC1 = int.Parse(txtAC1.Text);
-                if (txtAC2.Text != "") iAC2 = int.Parse(txtAC2.Text);
-                if (txtAC3.Text != "") iAC3 = int.Parse(txtAC3.Text);
-                if (txtAC4.Text != "") iAC4 = int.Parse(txtAC4.Text);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Bitte geben Sie nur Ziffern als Telefonnummern ein!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             dtBirthday = datePickerBirthday.Value;
@@ -425,5 +404,12 @@ namespace Telefonbuch
 
         #endregion
 
+        //Test button
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            Preview p = new Preview("Mustermann", "Max", "NV", Gender.MALE);
+
+            p.ShowPreview();
+        }
     }
 }

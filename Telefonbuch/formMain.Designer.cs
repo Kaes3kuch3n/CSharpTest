@@ -170,6 +170,7 @@
             this.btnOpen.TabIndex = 1;
             this.toolTipButtons.SetToolTip(this.btnOpen, "Kontakte öffnen");
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // btnPreview
             // 
