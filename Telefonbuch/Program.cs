@@ -16,7 +16,7 @@ namespace Telefonbuch
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frameMain());
+            Application.Run(new formMain());
         }
     }
 }

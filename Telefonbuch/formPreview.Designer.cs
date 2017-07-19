@@ -1,6 +1,6 @@
 ﻿namespace Telefonbuch
 {
-    partial class framePreview
+    partial class formPreview
     {
         /// <summary>
         /// Required designer variable.
@@ -41,28 +41,30 @@
             this.lblGenderPH = new System.Windows.Forms.Label();
             this.lblBirthdayPH = new System.Windows.Forms.Label();
             this.lblBirthday = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxContact = new System.Windows.Forms.PictureBox();
             this.groupBoxNumbers = new System.Windows.Forms.GroupBox();
-            this.lblNumber1 = new System.Windows.Forms.Label();
-            this.lblNumber2 = new System.Windows.Forms.Label();
-            this.lblNumber3 = new System.Windows.Forms.Label();
-            this.lblNumber4 = new System.Windows.Forms.Label();
-            this.lblNumberPH1 = new System.Windows.Forms.Label();
-            this.lblNumberPH2 = new System.Windows.Forms.Label();
-            this.lblNumberPH3 = new System.Windows.Forms.Label();
             this.lblNumberPH4 = new System.Windows.Forms.Label();
+            this.lblNumberPH3 = new System.Windows.Forms.Label();
+            this.lblNumberPH2 = new System.Windows.Forms.Label();
+            this.lblNumberPH1 = new System.Windows.Forms.Label();
+            this.lblNumber4 = new System.Windows.Forms.Label();
+            this.lblNumber3 = new System.Windows.Forms.Label();
+            this.lblNumber2 = new System.Windows.Forms.Label();
+            this.lblNumber1 = new System.Windows.Forms.Label();
             this.groupBoxAddress = new System.Windows.Forms.GroupBox();
-            this.lblStreet = new System.Windows.Forms.Label();
-            this.lblHouseNumber = new System.Windows.Forms.Label();
-            this.lblZipCode = new System.Windows.Forms.Label();
-            this.lblCity = new System.Windows.Forms.Label();
-            this.lblCountry = new System.Windows.Forms.Label();
-            this.lblStreetPH = new System.Windows.Forms.Label();
-            this.lblZipCodePH = new System.Windows.Forms.Label();
-            this.lblCountryPH = new System.Windows.Forms.Label();
-            this.lblCityPH = new System.Windows.Forms.Label();
             this.lblHouseNumberPH = new System.Windows.Forms.Label();
+            this.lblCityPH = new System.Windows.Forms.Label();
+            this.lblCountryPH = new System.Windows.Forms.Label();
+            this.lblZipCodePH = new System.Windows.Forms.Label();
+            this.lblStreetPH = new System.Windows.Forms.Label();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.lblCity = new System.Windows.Forms.Label();
+            this.lblZipCode = new System.Windows.Forms.Label();
+            this.lblHouseNumber = new System.Windows.Forms.Label();
+            this.lblStreet = new System.Windows.Forms.Label();
             this.groupBoxAddress2 = new System.Windows.Forms.GroupBox();
+            this.lblWorkNamePH = new System.Windows.Forms.Label();
+            this.lblWorkName = new System.Windows.Forms.Label();
             this.lblHouseNumberPH2 = new System.Windows.Forms.Label();
             this.lblCityPH2 = new System.Windows.Forms.Label();
             this.lblCountryPH2 = new System.Windows.Forms.Label();
@@ -73,17 +75,15 @@
             this.lblZipCode2 = new System.Windows.Forms.Label();
             this.lblHouseNumber2 = new System.Windows.Forms.Label();
             this.lblStreet2 = new System.Windows.Forms.Label();
-            this.lblWorkName = new System.Windows.Forms.Label();
-            this.lblWorkNamePH = new System.Windows.Forms.Label();
             this.groupBoxOther = new System.Windows.Forms.GroupBox();
-            this.lblEmail1 = new System.Windows.Forms.Label();
-            this.lblEmail2 = new System.Windows.Forms.Label();
-            this.lblEmailPH1 = new System.Windows.Forms.Label();
-            this.lblEmailPH2 = new System.Windows.Forms.Label();
-            this.lblNotes = new System.Windows.Forms.Label();
             this.lblNotesPH = new System.Windows.Forms.Label();
+            this.lblNotes = new System.Windows.Forms.Label();
+            this.lblEmailPH2 = new System.Windows.Forms.Label();
+            this.lblEmailPH1 = new System.Windows.Forms.Label();
+            this.lblEmail2 = new System.Windows.Forms.Label();
+            this.lblEmail1 = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContact)).BeginInit();
             this.groupBoxNumbers.SuspendLayout();
             this.groupBoxAddress.SuspendLayout();
             this.groupBoxAddress2.SuspendLayout();
@@ -139,9 +139,9 @@
             this.lblNickNamePH.AutoSize = true;
             this.lblNickNamePH.Location = new System.Drawing.Point(82, 70);
             this.lblNickNamePH.Name = "lblNickNamePH";
-            this.lblNickNamePH.Size = new System.Drawing.Size(37, 13);
+            this.lblNickNamePH.Size = new System.Drawing.Size(22, 13);
             this.lblNickNamePH.TabIndex = 4;
-            this.lblNickNamePH.Text = "_____";
+            this.lblNickNamePH.Text = "-----";
             this.toolTip.SetToolTip(this.lblNickNamePH, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblNickNamePH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
@@ -150,9 +150,9 @@
             this.lblFirstNamePH.AutoSize = true;
             this.lblFirstNamePH.Location = new System.Drawing.Point(82, 41);
             this.lblFirstNamePH.Name = "lblFirstNamePH";
-            this.lblFirstNamePH.Size = new System.Drawing.Size(37, 13);
+            this.lblFirstNamePH.Size = new System.Drawing.Size(22, 13);
             this.lblFirstNamePH.TabIndex = 5;
-            this.lblFirstNamePH.Text = "_____";
+            this.lblFirstNamePH.Text = "-----";
             this.toolTip.SetToolTip(this.lblFirstNamePH, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblFirstNamePH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
@@ -161,9 +161,9 @@
             this.lblNamePH.AutoSize = true;
             this.lblNamePH.Location = new System.Drawing.Point(82, 12);
             this.lblNamePH.Name = "lblNamePH";
-            this.lblNamePH.Size = new System.Drawing.Size(37, 13);
+            this.lblNamePH.Size = new System.Drawing.Size(22, 13);
             this.lblNamePH.TabIndex = 6;
-            this.lblNamePH.Text = "_____";
+            this.lblNamePH.Text = "-----";
             this.toolTip.SetToolTip(this.lblNamePH, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblNamePH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
@@ -172,9 +172,9 @@
             this.lblTitlePH.AutoSize = true;
             this.lblTitlePH.Location = new System.Drawing.Point(82, 99);
             this.lblTitlePH.Name = "lblTitlePH";
-            this.lblTitlePH.Size = new System.Drawing.Size(37, 13);
+            this.lblTitlePH.Size = new System.Drawing.Size(22, 13);
             this.lblTitlePH.TabIndex = 7;
-            this.lblTitlePH.Text = "_____";
+            this.lblTitlePH.Text = "-----";
             this.toolTip.SetToolTip(this.lblTitlePH, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblTitlePH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
@@ -194,9 +194,9 @@
             this.lblGenderPH.AutoSize = true;
             this.lblGenderPH.Location = new System.Drawing.Point(82, 148);
             this.lblGenderPH.Name = "lblGenderPH";
-            this.lblGenderPH.Size = new System.Drawing.Size(37, 13);
+            this.lblGenderPH.Size = new System.Drawing.Size(22, 13);
             this.lblGenderPH.TabIndex = 9;
-            this.lblGenderPH.Text = "_____";
+            this.lblGenderPH.Text = "-----";
             this.toolTip.SetToolTip(this.lblGenderPH, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblGenderPH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
@@ -205,9 +205,9 @@
             this.lblBirthdayPH.AutoSize = true;
             this.lblBirthdayPH.Location = new System.Drawing.Point(82, 177);
             this.lblBirthdayPH.Name = "lblBirthdayPH";
-            this.lblBirthdayPH.Size = new System.Drawing.Size(37, 13);
+            this.lblBirthdayPH.Size = new System.Drawing.Size(22, 13);
             this.lblBirthdayPH.TabIndex = 11;
-            this.lblBirthdayPH.Text = "_____";
+            this.lblBirthdayPH.Text = "-----";
             this.toolTip.SetToolTip(this.lblBirthdayPH, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblBirthdayPH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
@@ -222,15 +222,16 @@
             this.toolTip.SetToolTip(this.lblBirthday, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblBirthday.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // pictureBox1
+            // pictureBoxContact
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(272, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox1, "Zum Beenden des Preview-Modus doppelklicken");
-            this.pictureBox1.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.pictureBoxContact.Location = new System.Drawing.Point(272, 12);
+            this.pictureBoxContact.Name = "pictureBoxContact";
+            this.pictureBoxContact.Size = new System.Drawing.Size(200, 200);
+            this.pictureBoxContact.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxContact.TabIndex = 12;
+            this.pictureBoxContact.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBoxContact, "Zum Beenden des Preview-Modus doppelklicken");
+            this.pictureBoxContact.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
             // groupBoxNumbers
             // 
@@ -249,38 +250,49 @@
             this.groupBoxNumbers.TabStop = false;
             this.groupBoxNumbers.Text = "Telefonnummern";
             // 
-            // lblNumber1
+            // lblNumberPH4
             // 
-            this.lblNumber1.AutoSize = true;
-            this.lblNumber1.Location = new System.Drawing.Point(6, 29);
-            this.lblNumber1.Name = "lblNumber1";
-            this.lblNumber1.Size = new System.Drawing.Size(51, 13);
-            this.lblNumber1.TabIndex = 0;
-            this.lblNumber1.Text = "Tel.Nr. 1:";
-            this.toolTip.SetToolTip(this.lblNumber1, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblNumber1.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblNumberPH4.AutoSize = true;
+            this.lblNumberPH4.Location = new System.Drawing.Point(63, 116);
+            this.lblNumberPH4.Name = "lblNumberPH4";
+            this.lblNumberPH4.Size = new System.Drawing.Size(22, 13);
+            this.lblNumberPH4.TabIndex = 7;
+            this.lblNumberPH4.Text = "-----";
+            this.toolTip.SetToolTip(this.lblNumberPH4, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblNumberPH4.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblNumber2
+            // lblNumberPH3
             // 
-            this.lblNumber2.AutoSize = true;
-            this.lblNumber2.Location = new System.Drawing.Point(6, 58);
-            this.lblNumber2.Name = "lblNumber2";
-            this.lblNumber2.Size = new System.Drawing.Size(51, 13);
-            this.lblNumber2.TabIndex = 1;
-            this.lblNumber2.Text = "Tel.Nr. 2:";
-            this.toolTip.SetToolTip(this.lblNumber2, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblNumber2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblNumberPH3.AutoSize = true;
+            this.lblNumberPH3.Location = new System.Drawing.Point(63, 87);
+            this.lblNumberPH3.Name = "lblNumberPH3";
+            this.lblNumberPH3.Size = new System.Drawing.Size(22, 13);
+            this.lblNumberPH3.TabIndex = 6;
+            this.lblNumberPH3.Text = "-----";
+            this.toolTip.SetToolTip(this.lblNumberPH3, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblNumberPH3.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblNumber3
+            // lblNumberPH2
             // 
-            this.lblNumber3.AutoSize = true;
-            this.lblNumber3.Location = new System.Drawing.Point(6, 87);
-            this.lblNumber3.Name = "lblNumber3";
-            this.lblNumber3.Size = new System.Drawing.Size(51, 13);
-            this.lblNumber3.TabIndex = 2;
-            this.lblNumber3.Text = "Tel.Nr. 3:";
-            this.toolTip.SetToolTip(this.lblNumber3, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblNumber3.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblNumberPH2.AutoSize = true;
+            this.lblNumberPH2.Location = new System.Drawing.Point(63, 58);
+            this.lblNumberPH2.Name = "lblNumberPH2";
+            this.lblNumberPH2.Size = new System.Drawing.Size(22, 13);
+            this.lblNumberPH2.TabIndex = 5;
+            this.lblNumberPH2.Text = "-----";
+            this.toolTip.SetToolTip(this.lblNumberPH2, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblNumberPH2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            // 
+            // lblNumberPH1
+            // 
+            this.lblNumberPH1.AutoSize = true;
+            this.lblNumberPH1.Location = new System.Drawing.Point(63, 29);
+            this.lblNumberPH1.Name = "lblNumberPH1";
+            this.lblNumberPH1.Size = new System.Drawing.Size(22, 13);
+            this.lblNumberPH1.TabIndex = 4;
+            this.lblNumberPH1.Text = "-----";
+            this.toolTip.SetToolTip(this.lblNumberPH1, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblNumberPH1.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
             // lblNumber4
             // 
@@ -293,49 +305,38 @@
             this.toolTip.SetToolTip(this.lblNumber4, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblNumber4.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblNumberPH1
+            // lblNumber3
             // 
-            this.lblNumberPH1.AutoSize = true;
-            this.lblNumberPH1.Location = new System.Drawing.Point(63, 29);
-            this.lblNumberPH1.Name = "lblNumberPH1";
-            this.lblNumberPH1.Size = new System.Drawing.Size(37, 13);
-            this.lblNumberPH1.TabIndex = 4;
-            this.lblNumberPH1.Text = "_____";
-            this.toolTip.SetToolTip(this.lblNumberPH1, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblNumberPH1.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblNumber3.AutoSize = true;
+            this.lblNumber3.Location = new System.Drawing.Point(6, 87);
+            this.lblNumber3.Name = "lblNumber3";
+            this.lblNumber3.Size = new System.Drawing.Size(51, 13);
+            this.lblNumber3.TabIndex = 2;
+            this.lblNumber3.Text = "Tel.Nr. 3:";
+            this.toolTip.SetToolTip(this.lblNumber3, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblNumber3.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblNumberPH2
+            // lblNumber2
             // 
-            this.lblNumberPH2.AutoSize = true;
-            this.lblNumberPH2.Location = new System.Drawing.Point(63, 58);
-            this.lblNumberPH2.Name = "lblNumberPH2";
-            this.lblNumberPH2.Size = new System.Drawing.Size(37, 13);
-            this.lblNumberPH2.TabIndex = 5;
-            this.lblNumberPH2.Text = "_____";
-            this.toolTip.SetToolTip(this.lblNumberPH2, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblNumberPH2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblNumber2.AutoSize = true;
+            this.lblNumber2.Location = new System.Drawing.Point(6, 58);
+            this.lblNumber2.Name = "lblNumber2";
+            this.lblNumber2.Size = new System.Drawing.Size(51, 13);
+            this.lblNumber2.TabIndex = 1;
+            this.lblNumber2.Text = "Tel.Nr. 2:";
+            this.toolTip.SetToolTip(this.lblNumber2, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblNumber2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblNumberPH3
+            // lblNumber1
             // 
-            this.lblNumberPH3.AutoSize = true;
-            this.lblNumberPH3.Location = new System.Drawing.Point(63, 87);
-            this.lblNumberPH3.Name = "lblNumberPH3";
-            this.lblNumberPH3.Size = new System.Drawing.Size(37, 13);
-            this.lblNumberPH3.TabIndex = 6;
-            this.lblNumberPH3.Text = "_____";
-            this.toolTip.SetToolTip(this.lblNumberPH3, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblNumberPH3.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
-            // 
-            // lblNumberPH4
-            // 
-            this.lblNumberPH4.AutoSize = true;
-            this.lblNumberPH4.Location = new System.Drawing.Point(63, 116);
-            this.lblNumberPH4.Name = "lblNumberPH4";
-            this.lblNumberPH4.Size = new System.Drawing.Size(37, 13);
-            this.lblNumberPH4.TabIndex = 7;
-            this.lblNumberPH4.Text = "_____";
-            this.toolTip.SetToolTip(this.lblNumberPH4, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblNumberPH4.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblNumber1.AutoSize = true;
+            this.lblNumber1.Location = new System.Drawing.Point(6, 29);
+            this.lblNumber1.Name = "lblNumber1";
+            this.lblNumber1.Size = new System.Drawing.Size(51, 13);
+            this.lblNumber1.TabIndex = 0;
+            this.lblNumber1.Text = "Tel.Nr. 1:";
+            this.toolTip.SetToolTip(this.lblNumber1, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblNumber1.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
             // groupBoxAddress
             // 
@@ -356,49 +357,60 @@
             this.groupBoxAddress.TabStop = false;
             this.groupBoxAddress.Text = "Privatadresse";
             // 
-            // lblStreet
+            // lblHouseNumberPH
             // 
-            this.lblStreet.AutoSize = true;
-            this.lblStreet.Location = new System.Drawing.Point(6, 25);
-            this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(41, 13);
-            this.lblStreet.TabIndex = 15;
-            this.lblStreet.Text = "Straße:";
-            this.toolTip.SetToolTip(this.lblStreet, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblStreet.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblHouseNumberPH.AutoSize = true;
+            this.lblHouseNumberPH.Location = new System.Drawing.Point(390, 25);
+            this.lblHouseNumberPH.Name = "lblHouseNumberPH";
+            this.lblHouseNumberPH.Size = new System.Drawing.Size(22, 13);
+            this.lblHouseNumberPH.TabIndex = 23;
+            this.lblHouseNumberPH.Text = "-----";
+            this.toolTip.SetToolTip(this.lblHouseNumberPH, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblHouseNumberPH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblHouseNumber
+            // lblCityPH
             // 
-            this.lblHouseNumber.AutoSize = true;
-            this.lblHouseNumber.Location = new System.Drawing.Point(346, 25);
-            this.lblHouseNumber.Name = "lblHouseNumber";
-            this.lblHouseNumber.Size = new System.Drawing.Size(47, 13);
-            this.lblHouseNumber.TabIndex = 16;
-            this.lblHouseNumber.Text = "Hausnr.:";
-            this.toolTip.SetToolTip(this.lblHouseNumber, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblHouseNumber.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblCityPH.AutoSize = true;
+            this.lblCityPH.Location = new System.Drawing.Point(170, 54);
+            this.lblCityPH.Name = "lblCityPH";
+            this.lblCityPH.Size = new System.Drawing.Size(22, 13);
+            this.lblCityPH.TabIndex = 22;
+            this.lblCityPH.Text = "-----";
+            this.toolTip.SetToolTip(this.lblCityPH, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblCityPH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblZipCode
+            // lblCountryPH
             // 
-            this.lblZipCode.AutoSize = true;
-            this.lblZipCode.Location = new System.Drawing.Point(6, 54);
-            this.lblZipCode.Name = "lblZipCode";
-            this.lblZipCode.Size = new System.Drawing.Size(30, 13);
-            this.lblZipCode.TabIndex = 17;
-            this.lblZipCode.Text = "PLZ:";
-            this.toolTip.SetToolTip(this.lblZipCode, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblZipCode.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblCountryPH.AutoSize = true;
+            this.lblCountryPH.Location = new System.Drawing.Point(53, 83);
+            this.lblCountryPH.Name = "lblCountryPH";
+            this.lblCountryPH.Size = new System.Drawing.Size(22, 13);
+            this.lblCountryPH.TabIndex = 21;
+            this.lblCountryPH.Text = "-----";
+            this.toolTip.SetToolTip(this.lblCountryPH, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblCountryPH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblCity
+            // lblZipCodePH
             // 
-            this.lblCity.AutoSize = true;
-            this.lblCity.Location = new System.Drawing.Point(140, 54);
-            this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(24, 13);
-            this.lblCity.TabIndex = 16;
-            this.lblCity.Text = "Ort:";
-            this.toolTip.SetToolTip(this.lblCity, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblCity.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblZipCodePH.AutoSize = true;
+            this.lblZipCodePH.Location = new System.Drawing.Point(53, 54);
+            this.lblZipCodePH.Name = "lblZipCodePH";
+            this.lblZipCodePH.Size = new System.Drawing.Size(22, 13);
+            this.lblZipCodePH.TabIndex = 20;
+            this.lblZipCodePH.Text = "-----";
+            this.toolTip.SetToolTip(this.lblZipCodePH, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblZipCodePH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            // 
+            // lblStreetPH
+            // 
+            this.lblStreetPH.AutoSize = true;
+            this.lblStreetPH.Location = new System.Drawing.Point(53, 25);
+            this.lblStreetPH.Name = "lblStreetPH";
+            this.lblStreetPH.Size = new System.Drawing.Size(22, 13);
+            this.lblStreetPH.TabIndex = 19;
+            this.lblStreetPH.Text = "-----";
+            this.toolTip.SetToolTip(this.lblStreetPH, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblStreetPH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
             // lblCountry
             // 
@@ -411,60 +423,49 @@
             this.toolTip.SetToolTip(this.lblCountry, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblCountry.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblStreetPH
+            // lblCity
             // 
-            this.lblStreetPH.AutoSize = true;
-            this.lblStreetPH.Location = new System.Drawing.Point(53, 25);
-            this.lblStreetPH.Name = "lblStreetPH";
-            this.lblStreetPH.Size = new System.Drawing.Size(37, 13);
-            this.lblStreetPH.TabIndex = 19;
-            this.lblStreetPH.Text = "_____";
-            this.toolTip.SetToolTip(this.lblStreetPH, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblStreetPH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblCity.AutoSize = true;
+            this.lblCity.Location = new System.Drawing.Point(140, 54);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(24, 13);
+            this.lblCity.TabIndex = 16;
+            this.lblCity.Text = "Ort:";
+            this.toolTip.SetToolTip(this.lblCity, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblCity.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblZipCodePH
+            // lblZipCode
             // 
-            this.lblZipCodePH.AutoSize = true;
-            this.lblZipCodePH.Location = new System.Drawing.Point(53, 54);
-            this.lblZipCodePH.Name = "lblZipCodePH";
-            this.lblZipCodePH.Size = new System.Drawing.Size(37, 13);
-            this.lblZipCodePH.TabIndex = 20;
-            this.lblZipCodePH.Text = "_____";
-            this.toolTip.SetToolTip(this.lblZipCodePH, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblZipCodePH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblZipCode.AutoSize = true;
+            this.lblZipCode.Location = new System.Drawing.Point(6, 54);
+            this.lblZipCode.Name = "lblZipCode";
+            this.lblZipCode.Size = new System.Drawing.Size(30, 13);
+            this.lblZipCode.TabIndex = 17;
+            this.lblZipCode.Text = "PLZ:";
+            this.toolTip.SetToolTip(this.lblZipCode, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblZipCode.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblCountryPH
+            // lblHouseNumber
             // 
-            this.lblCountryPH.AutoSize = true;
-            this.lblCountryPH.Location = new System.Drawing.Point(53, 83);
-            this.lblCountryPH.Name = "lblCountryPH";
-            this.lblCountryPH.Size = new System.Drawing.Size(37, 13);
-            this.lblCountryPH.TabIndex = 21;
-            this.lblCountryPH.Text = "_____";
-            this.toolTip.SetToolTip(this.lblCountryPH, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblCountryPH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblHouseNumber.AutoSize = true;
+            this.lblHouseNumber.Location = new System.Drawing.Point(346, 25);
+            this.lblHouseNumber.Name = "lblHouseNumber";
+            this.lblHouseNumber.Size = new System.Drawing.Size(47, 13);
+            this.lblHouseNumber.TabIndex = 16;
+            this.lblHouseNumber.Text = "Hausnr.:";
+            this.toolTip.SetToolTip(this.lblHouseNumber, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblHouseNumber.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblCityPH
+            // lblStreet
             // 
-            this.lblCityPH.AutoSize = true;
-            this.lblCityPH.Location = new System.Drawing.Point(170, 54);
-            this.lblCityPH.Name = "lblCityPH";
-            this.lblCityPH.Size = new System.Drawing.Size(37, 13);
-            this.lblCityPH.TabIndex = 22;
-            this.lblCityPH.Text = "_____";
-            this.toolTip.SetToolTip(this.lblCityPH, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblCityPH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
-            // 
-            // lblHouseNumberPH
-            // 
-            this.lblHouseNumberPH.AutoSize = true;
-            this.lblHouseNumberPH.Location = new System.Drawing.Point(399, 25);
-            this.lblHouseNumberPH.Name = "lblHouseNumberPH";
-            this.lblHouseNumberPH.Size = new System.Drawing.Size(37, 13);
-            this.lblHouseNumberPH.TabIndex = 23;
-            this.lblHouseNumberPH.Text = "_____";
-            this.toolTip.SetToolTip(this.lblHouseNumberPH, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblHouseNumberPH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblStreet.AutoSize = true;
+            this.lblStreet.Location = new System.Drawing.Point(6, 25);
+            this.lblStreet.Name = "lblStreet";
+            this.lblStreet.Size = new System.Drawing.Size(41, 13);
+            this.lblStreet.TabIndex = 15;
+            this.lblStreet.Text = "Straße:";
+            this.toolTip.SetToolTip(this.lblStreet, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblStreet.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
             // groupBoxAddress2
             // 
@@ -487,14 +488,36 @@
             this.groupBoxAddress2.TabStop = false;
             this.groupBoxAddress2.Text = "Firmenadresse";
             // 
+            // lblWorkNamePH
+            // 
+            this.lblWorkNamePH.AutoSize = true;
+            this.lblWorkNamePH.Location = new System.Drawing.Point(53, 25);
+            this.lblWorkNamePH.Name = "lblWorkNamePH";
+            this.lblWorkNamePH.Size = new System.Drawing.Size(22, 13);
+            this.lblWorkNamePH.TabIndex = 25;
+            this.lblWorkNamePH.Text = "-----";
+            this.toolTip.SetToolTip(this.lblWorkNamePH, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblWorkNamePH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            // 
+            // lblWorkName
+            // 
+            this.lblWorkName.AutoSize = true;
+            this.lblWorkName.Location = new System.Drawing.Point(6, 25);
+            this.lblWorkName.Name = "lblWorkName";
+            this.lblWorkName.Size = new System.Drawing.Size(35, 13);
+            this.lblWorkName.TabIndex = 24;
+            this.lblWorkName.Text = "Firma:";
+            this.toolTip.SetToolTip(this.lblWorkName, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblWorkName.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            // 
             // lblHouseNumberPH2
             // 
             this.lblHouseNumberPH2.AutoSize = true;
-            this.lblHouseNumberPH2.Location = new System.Drawing.Point(399, 54);
+            this.lblHouseNumberPH2.Location = new System.Drawing.Point(390, 54);
             this.lblHouseNumberPH2.Name = "lblHouseNumberPH2";
-            this.lblHouseNumberPH2.Size = new System.Drawing.Size(37, 13);
+            this.lblHouseNumberPH2.Size = new System.Drawing.Size(22, 13);
             this.lblHouseNumberPH2.TabIndex = 23;
-            this.lblHouseNumberPH2.Text = "_____";
+            this.lblHouseNumberPH2.Text = "-----";
             this.toolTip.SetToolTip(this.lblHouseNumberPH2, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblHouseNumberPH2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
@@ -503,9 +526,9 @@
             this.lblCityPH2.AutoSize = true;
             this.lblCityPH2.Location = new System.Drawing.Point(170, 83);
             this.lblCityPH2.Name = "lblCityPH2";
-            this.lblCityPH2.Size = new System.Drawing.Size(37, 13);
+            this.lblCityPH2.Size = new System.Drawing.Size(22, 13);
             this.lblCityPH2.TabIndex = 22;
-            this.lblCityPH2.Text = "_____";
+            this.lblCityPH2.Text = "-----";
             this.toolTip.SetToolTip(this.lblCityPH2, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblCityPH2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
@@ -514,9 +537,9 @@
             this.lblCountryPH2.AutoSize = true;
             this.lblCountryPH2.Location = new System.Drawing.Point(53, 112);
             this.lblCountryPH2.Name = "lblCountryPH2";
-            this.lblCountryPH2.Size = new System.Drawing.Size(37, 13);
+            this.lblCountryPH2.Size = new System.Drawing.Size(22, 13);
             this.lblCountryPH2.TabIndex = 21;
-            this.lblCountryPH2.Text = "_____";
+            this.lblCountryPH2.Text = "-----";
             this.toolTip.SetToolTip(this.lblCountryPH2, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblCountryPH2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
@@ -525,9 +548,9 @@
             this.lblZipCodePH2.AutoSize = true;
             this.lblZipCodePH2.Location = new System.Drawing.Point(53, 83);
             this.lblZipCodePH2.Name = "lblZipCodePH2";
-            this.lblZipCodePH2.Size = new System.Drawing.Size(37, 13);
+            this.lblZipCodePH2.Size = new System.Drawing.Size(22, 13);
             this.lblZipCodePH2.TabIndex = 20;
-            this.lblZipCodePH2.Text = "_____";
+            this.lblZipCodePH2.Text = "-----";
             this.toolTip.SetToolTip(this.lblZipCodePH2, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblZipCodePH2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
@@ -536,9 +559,9 @@
             this.lblStreetPH2.AutoSize = true;
             this.lblStreetPH2.Location = new System.Drawing.Point(53, 54);
             this.lblStreetPH2.Name = "lblStreetPH2";
-            this.lblStreetPH2.Size = new System.Drawing.Size(37, 13);
+            this.lblStreetPH2.Size = new System.Drawing.Size(22, 13);
             this.lblStreetPH2.TabIndex = 19;
-            this.lblStreetPH2.Text = "_____";
+            this.lblStreetPH2.Text = "-----";
             this.toolTip.SetToolTip(this.lblStreetPH2, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblStreetPH2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
@@ -597,28 +620,6 @@
             this.toolTip.SetToolTip(this.lblStreet2, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblStreet2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblWorkName
-            // 
-            this.lblWorkName.AutoSize = true;
-            this.lblWorkName.Location = new System.Drawing.Point(6, 25);
-            this.lblWorkName.Name = "lblWorkName";
-            this.lblWorkName.Size = new System.Drawing.Size(35, 13);
-            this.lblWorkName.TabIndex = 24;
-            this.lblWorkName.Text = "Firma:";
-            this.toolTip.SetToolTip(this.lblWorkName, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblWorkName.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
-            // 
-            // lblWorkNamePH
-            // 
-            this.lblWorkNamePH.AutoSize = true;
-            this.lblWorkNamePH.Location = new System.Drawing.Point(53, 25);
-            this.lblWorkNamePH.Name = "lblWorkNamePH";
-            this.lblWorkNamePH.Size = new System.Drawing.Size(37, 13);
-            this.lblWorkNamePH.TabIndex = 25;
-            this.lblWorkNamePH.Text = "_____";
-            this.toolTip.SetToolTip(this.lblWorkNamePH, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblWorkNamePH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
-            // 
             // groupBoxOther
             // 
             this.groupBoxOther.Controls.Add(this.lblNotesPH);
@@ -634,49 +635,16 @@
             this.groupBoxOther.TabStop = false;
             this.groupBoxOther.Text = "Sonstiges";
             // 
-            // lblEmail1
+            // lblNotesPH
             // 
-            this.lblEmail1.AutoSize = true;
-            this.lblEmail1.Location = new System.Drawing.Point(6, 26);
-            this.lblEmail1.Name = "lblEmail1";
-            this.lblEmail1.Size = new System.Drawing.Size(44, 13);
-            this.lblEmail1.TabIndex = 0;
-            this.lblEmail1.Text = "eMail 1:";
-            this.toolTip.SetToolTip(this.lblEmail1, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblEmail1.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
-            // 
-            // lblEmail2
-            // 
-            this.lblEmail2.AutoSize = true;
-            this.lblEmail2.Location = new System.Drawing.Point(6, 55);
-            this.lblEmail2.Name = "lblEmail2";
-            this.lblEmail2.Size = new System.Drawing.Size(44, 13);
-            this.lblEmail2.TabIndex = 1;
-            this.lblEmail2.Text = "eMail 2:";
-            this.toolTip.SetToolTip(this.lblEmail2, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblEmail2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
-            // 
-            // lblEmailPH1
-            // 
-            this.lblEmailPH1.AutoSize = true;
-            this.lblEmailPH1.Location = new System.Drawing.Point(58, 26);
-            this.lblEmailPH1.Name = "lblEmailPH1";
-            this.lblEmailPH1.Size = new System.Drawing.Size(37, 13);
-            this.lblEmailPH1.TabIndex = 2;
-            this.lblEmailPH1.Text = "_____";
-            this.toolTip.SetToolTip(this.lblEmailPH1, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblEmailPH1.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
-            // 
-            // lblEmailPH2
-            // 
-            this.lblEmailPH2.AutoSize = true;
-            this.lblEmailPH2.Location = new System.Drawing.Point(58, 55);
-            this.lblEmailPH2.Name = "lblEmailPH2";
-            this.lblEmailPH2.Size = new System.Drawing.Size(37, 13);
-            this.lblEmailPH2.TabIndex = 3;
-            this.lblEmailPH2.Text = "_____";
-            this.toolTip.SetToolTip(this.lblEmailPH2, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblEmailPH2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblNotesPH.AutoSize = true;
+            this.lblNotesPH.Location = new System.Drawing.Point(58, 84);
+            this.lblNotesPH.Name = "lblNotesPH";
+            this.lblNotesPH.Size = new System.Drawing.Size(22, 13);
+            this.lblNotesPH.TabIndex = 5;
+            this.lblNotesPH.Text = "-----";
+            this.toolTip.SetToolTip(this.lblNotesPH, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblNotesPH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
             // lblNotes
             // 
@@ -689,23 +657,56 @@
             this.toolTip.SetToolTip(this.lblNotes, "Zum Beenden des Preview-Modus doppelklicken");
             this.lblNotes.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
-            // lblNotesPH
+            // lblEmailPH2
             // 
-            this.lblNotesPH.AutoSize = true;
-            this.lblNotesPH.Location = new System.Drawing.Point(58, 84);
-            this.lblNotesPH.Name = "lblNotesPH";
-            this.lblNotesPH.Size = new System.Drawing.Size(37, 13);
-            this.lblNotesPH.TabIndex = 5;
-            this.lblNotesPH.Text = "_____";
-            this.toolTip.SetToolTip(this.lblNotesPH, "Zum Beenden des Preview-Modus doppelklicken");
-            this.lblNotesPH.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            this.lblEmailPH2.AutoSize = true;
+            this.lblEmailPH2.Location = new System.Drawing.Point(58, 55);
+            this.lblEmailPH2.Name = "lblEmailPH2";
+            this.lblEmailPH2.Size = new System.Drawing.Size(22, 13);
+            this.lblEmailPH2.TabIndex = 3;
+            this.lblEmailPH2.Text = "-----";
+            this.toolTip.SetToolTip(this.lblEmailPH2, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblEmailPH2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            // 
+            // lblEmailPH1
+            // 
+            this.lblEmailPH1.AutoSize = true;
+            this.lblEmailPH1.Location = new System.Drawing.Point(58, 26);
+            this.lblEmailPH1.Name = "lblEmailPH1";
+            this.lblEmailPH1.Size = new System.Drawing.Size(22, 13);
+            this.lblEmailPH1.TabIndex = 2;
+            this.lblEmailPH1.Text = "-----";
+            this.toolTip.SetToolTip(this.lblEmailPH1, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblEmailPH1.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            // 
+            // lblEmail2
+            // 
+            this.lblEmail2.AutoSize = true;
+            this.lblEmail2.Location = new System.Drawing.Point(6, 55);
+            this.lblEmail2.Name = "lblEmail2";
+            this.lblEmail2.Size = new System.Drawing.Size(44, 13);
+            this.lblEmail2.TabIndex = 1;
+            this.lblEmail2.Text = "eMail 2:";
+            this.toolTip.SetToolTip(this.lblEmail2, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblEmail2.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
+            // 
+            // lblEmail1
+            // 
+            this.lblEmail1.AutoSize = true;
+            this.lblEmail1.Location = new System.Drawing.Point(6, 26);
+            this.lblEmail1.Name = "lblEmail1";
+            this.lblEmail1.Size = new System.Drawing.Size(44, 13);
+            this.lblEmail1.TabIndex = 0;
+            this.lblEmail1.Text = "eMail 1:";
+            this.toolTip.SetToolTip(this.lblEmail1, "Zum Beenden des Preview-Modus doppelklicken");
+            this.lblEmail1.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
             // 
             // toolTip
             // 
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip.ToolTipTitle = "Fertig?";
             // 
-            // framePreview
+            // formPreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -715,7 +716,7 @@
             this.Controls.Add(this.groupBoxAddress2);
             this.Controls.Add(this.groupBoxAddress);
             this.Controls.Add(this.groupBoxNumbers);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxContact);
             this.Controls.Add(this.lblBirthdayPH);
             this.Controls.Add(this.lblBirthday);
             this.Controls.Add(this.lblGenderPH);
@@ -728,13 +729,13 @@
             this.Controls.Add(this.lblNickName);
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblName);
-            this.Name = "framePreview";
+            this.Name = "formPreview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vorschau für: ";
             this.toolTip.SetToolTip(this, "Zum Beenden des Preview-Modus doppeklicken");
             this.TopMost = true;
             this.DoubleClick += new System.EventHandler(this.framePreview_DoubleClick);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContact)).EndInit();
             this.groupBoxNumbers.ResumeLayout(false);
             this.groupBoxNumbers.PerformLayout();
             this.groupBoxAddress.ResumeLayout(false);
@@ -802,7 +803,7 @@
         public System.Windows.Forms.Label lblTitlePH;
         public System.Windows.Forms.Label lblGenderPH;
         public System.Windows.Forms.Label lblBirthdayPH;
-        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox pictureBoxContact;
         private System.Windows.Forms.ToolTip toolTip;
     }
 }

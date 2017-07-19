@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Telefonbuch
 {
-    public partial class frameMain : Form
+    public partial class formMain : Form
     {
         #region "Variablen"
 
@@ -40,32 +40,32 @@ namespace Telefonbuch
         string sEmail1 = "";
         string sEmail2 = "";
         string sNotes = "";
+        string sNr1 = "";
+        string sNr2 = "";
+        string sNr3 = "";
+        string sNr4 = "";
         #endregion
 
         #region "Integers"
         int iGender;
         int iCC1;
-        int iAC1;
-        int iNr1;
         int iCC2;
-        int iAC2;
-        int iNr2;
         int iCC3;
-        int iAC3;
-        int iNr3;
         int iCC4;
+        int iAC1;
+        int iAC2;
+        int iAC3;
         int iAC4;
-        int iNr4;
         #endregion
 
         #region "Sonstiges"
-        Image imgContact;
+        Image imgContact = Telefonbuch.Properties.Resources.contact;
         DateTime dtBirthday;
         #endregion
 
         #endregion
 
-        public frameMain()
+        public formMain()
         {
             InitializeComponent();
         }
@@ -242,8 +242,41 @@ namespace Telefonbuch
         //Button "Vorschau"
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            framePreview fPre = new framePreview();
             saveVars();
+
+            formPreview fPre = new formPreview();
+            fPre.Text += prepareShowAsPreview(sName, sFirstName, sNickName, sTitle, sShowAsType);
+
+            fPre.lblEmailPH1.Text = prepareMailPreview(sEmail1, sEmailType1);
+            fPre.lblEmailPH2.Text = prepareMailPreview(sEmail2, sEmailType2);
+            
+            fPre.lblNumberPH1.Text = prepareNumbersPreview(sNumberType1, iCC1, iAC1, sNr1);
+            fPre.lblNumberPH2.Text = prepareNumbersPreview(sNumberType2, iCC2, iAC2, sNr2);
+            fPre.lblNumberPH3.Text = prepareNumbersPreview(sNumberType3, iCC3, iAC3, sNr3);
+            fPre.lblNumberPH4.Text = prepareNumbersPreview(sNumberType4, iCC4, iAC4, sNr4);
+
+            fPre.lblGenderPH.Text = prepareGenderPreview(iGender);
+
+            fPre.lblNamePH.Text = sName;
+            fPre.lblFirstNamePH.Text = sFirstName;
+            fPre.lblNickNamePH.Text = sNickName;
+            fPre.lblTitlePH.Text = sTitle;
+            fPre.lblStreetPH.Text = sStreet;
+            fPre.lblHouseNumberPH.Text = sHouseNumber;
+            fPre.lblZipCodePH.Text = sZipCode;
+            fPre.lblCityPH.Text = sCity;
+            fPre.lblCountryPH.Text = sCountry;
+            fPre.lblWorkNamePH.Text = sWorkName;
+            fPre.lblStreetPH2.Text = sStreet2;
+            fPre.lblHouseNumberPH2.Text = sHouseNumber2;
+            fPre.lblZipCodePH2.Text = sZipCode2;
+            fPre.lblCityPH2.Text = sCity2;
+            fPre.lblCountryPH2.Text = sCountry2;
+            fPre.lblNotesPH.Text = sNotes;
+
+            fPre.lblBirthdayPH.Text = dtBirthday.ToString("dddd, dd.mm.yyyy");
+            fPre.pictureBoxContact.Image = imgContact;
+
             fPre.Show();
         }
 
@@ -282,6 +315,11 @@ namespace Telefonbuch
             sEmail2 = mailStringCheck(txtEmail2.Text);
             sNotes = txtNotes.Text;
 
+            sNr1 = txtNumber1.Text;
+            sNr2 = txtNumber2.Text;
+            sNr3 = txtNumber3.Text;
+            sNr4 = txtNumber4.Text;
+
             if (rbFemale.Checked)
             {
                 iGender = 0;
@@ -306,10 +344,6 @@ namespace Telefonbuch
                 if (txtAC2.Text != "") iAC2 = int.Parse(txtAC2.Text);
                 if (txtAC3.Text != "") iAC3 = int.Parse(txtAC3.Text);
                 if (txtAC4.Text != "") iAC4 = int.Parse(txtAC4.Text);
-                if (txtNumber1.Text != "") iNr1 = int.Parse(txtNumber1.Text);
-                if (txtNumber2.Text != "") iNr2 = int.Parse(txtNumber2.Text);
-                if (txtNumber3.Text != "") iNr3 = int.Parse(txtNumber3.Text);
-                if (txtNumber4.Text != "") iNr4 = int.Parse(txtNumber4.Text);
             }
             catch (FormatException)
             {
@@ -317,6 +351,66 @@ namespace Telefonbuch
             }
 
             dtBirthday = datePickerBirthday.Value;
+        }
+
+        //Preview title
+        string prepareShowAsPreview(string name, string firstName, string nickName, string title, string showAsType)
+        {
+            switch (showAsType)
+            {
+                case "NV":
+                    return name + ", " + firstName;
+                case "VN":
+                    return firstName + " " + name;
+                case "NVS":
+                    return name + ", " + firstName + " (\"" + nickName + "\")";
+                case "TVN":
+                    return title + " " + firstName + " " + name;
+                default:
+                    return name + ", " + firstName;
+            }
+        }
+
+        //Preview mail
+        string prepareMailPreview(string email, string emailType)
+        {
+            if (email == "")
+            {
+                return "-----";
+            }
+            else
+            {
+                return email + " (" + emailType + ")";
+            }
+        }
+
+        //Preview numbers
+        string prepareNumbersPreview(string numberType, int cc, int ac, string number)
+        {
+            if (ac == 0 && number == "")
+            {
+                return "-----";
+            }
+            else
+            {
+                return "+" + cc + " " + ac + "/" + number + " (" + numberType + ")";
+            }
+        }
+
+        //Preview gender
+        string prepareGenderPreview(int gender)
+        {
+            switch (gender)
+            {
+                case 0:
+                    return "Weiblich";
+                case 1:
+                    return "Männlich";
+                case 2:
+                    return "Anderes";
+                default:
+                    return "-----";
+            }
         }
     }
 }

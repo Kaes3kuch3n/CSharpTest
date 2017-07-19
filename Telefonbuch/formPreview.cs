@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Telefonbuch
 {
-    public partial class framePreview : Form
+    public partial class formPreview : Form
     {
-        public framePreview()
+        public formPreview()
         {
             InitializeComponent();
         }

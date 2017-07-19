@@ -1,6 +1,6 @@
 ﻿namespace Telefonbuch
 {
-    partial class frameMain
+    partial class formMain
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMain));
             this.btnNew = new System.Windows.Forms.Button();
             this.imageListButtons = new System.Windows.Forms.ImageList(this.components);
             this.btnOpen = new System.Windows.Forms.Button();
@@ -491,7 +491,7 @@
             this.btnDelNumber3.Location = new System.Drawing.Point(588, 241);
             this.btnDelNumber3.Name = "btnDelNumber3";
             this.btnDelNumber3.Size = new System.Drawing.Size(23, 23);
-            this.btnDelNumber3.TabIndex = 26;
+            this.btnDelNumber3.TabIndex = 18;
             this.btnDelNumber3.UseVisualStyleBackColor = true;
             this.btnDelNumber3.Click += new System.EventHandler(this.btnDeleteClicked);
             // 
@@ -502,7 +502,7 @@
             this.btnDelNumber2.Location = new System.Drawing.Point(588, 200);
             this.btnDelNumber2.Name = "btnDelNumber2";
             this.btnDelNumber2.Size = new System.Drawing.Size(23, 23);
-            this.btnDelNumber2.TabIndex = 25;
+            this.btnDelNumber2.TabIndex = 12;
             this.btnDelNumber2.UseVisualStyleBackColor = true;
             this.btnDelNumber2.Click += new System.EventHandler(this.btnDeleteClicked);
             // 
@@ -513,7 +513,7 @@
             this.btnDelNumber1.Location = new System.Drawing.Point(588, 159);
             this.btnDelNumber1.Name = "btnDelNumber1";
             this.btnDelNumber1.Size = new System.Drawing.Size(23, 23);
-            this.btnDelNumber1.TabIndex = 24;
+            this.btnDelNumber1.TabIndex = 6;
             this.btnDelNumber1.UseVisualStyleBackColor = true;
             this.btnDelNumber1.Click += new System.EventHandler(this.btnDeleteClicked);
             // 
@@ -779,7 +779,7 @@
             this.txtWorkName.Location = new System.Drawing.Point(204, 35);
             this.txtWorkName.Name = "txtWorkName";
             this.txtWorkName.Size = new System.Drawing.Size(331, 20);
-            this.txtWorkName.TabIndex = 11;
+            this.txtWorkName.TabIndex = 1;
             // 
             // lblWorkName
             // 
@@ -795,7 +795,7 @@
             this.txtStreet2.Location = new System.Drawing.Point(204, 75);
             this.txtStreet2.Name = "txtStreet2";
             this.txtStreet2.Size = new System.Drawing.Size(245, 20);
-            this.txtStreet2.TabIndex = 1;
+            this.txtStreet2.TabIndex = 2;
             // 
             // txtZipCode2
             // 
@@ -1023,7 +1023,7 @@
             this.btnDelEmail2.Location = new System.Drawing.Point(644, 60);
             this.btnDelEmail2.Name = "btnDelEmail2";
             this.btnDelEmail2.Size = new System.Drawing.Size(23, 23);
-            this.btnDelEmail2.TabIndex = 26;
+            this.btnDelEmail2.TabIndex = 7;
             this.btnDelEmail2.UseVisualStyleBackColor = true;
             this.btnDelEmail2.Click += new System.EventHandler(this.btnDeleteClicked);
             // 
@@ -1034,7 +1034,7 @@
             this.btnDelEmail1.Location = new System.Drawing.Point(644, 23);
             this.btnDelEmail1.Name = "btnDelEmail1";
             this.btnDelEmail1.Size = new System.Drawing.Size(23, 23);
-            this.btnDelEmail1.TabIndex = 25;
+            this.btnDelEmail1.TabIndex = 4;
             this.btnDelEmail1.UseVisualStyleBackColor = true;
             this.btnDelEmail1.Click += new System.EventHandler(this.btnDeleteClicked);
             // 
@@ -1049,7 +1049,7 @@
             this.cbEmail2.Location = new System.Drawing.Point(517, 61);
             this.cbEmail2.Name = "cbEmail2";
             this.cbEmail2.Size = new System.Drawing.Size(121, 21);
-            this.cbEmail2.TabIndex = 5;
+            this.cbEmail2.TabIndex = 6;
             this.cbEmail2.SelectedIndexChanged += new System.EventHandler(this.cBoxesChanged);
             // 
             // cbEmail1
@@ -1071,7 +1071,7 @@
             this.txtEmail2.Location = new System.Drawing.Point(83, 61);
             this.txtEmail2.Name = "txtEmail2";
             this.txtEmail2.Size = new System.Drawing.Size(428, 20);
-            this.txtEmail2.TabIndex = 4;
+            this.txtEmail2.TabIndex = 5;
             // 
             // txtEmail1
             // 
@@ -1098,7 +1098,7 @@
             this.lblEmail1.TabIndex = 0;
             this.lblEmail1.Text = "#1:";
             // 
-            // frameMain
+            // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1112,7 +1112,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frameMain";
+            this.Name = "formMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Telefonbuch";
             this.tabControlContactInfos.ResumeLayout(false);
