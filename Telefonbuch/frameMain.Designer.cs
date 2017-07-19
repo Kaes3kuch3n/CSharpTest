@@ -181,6 +181,7 @@
             this.btnOpenPicture.Text = "...";
             this.toolTipButtons.SetToolTip(this.btnOpenPicture, "Kontaktbild auswählen");
             this.btnOpenPicture.UseVisualStyleBackColor = true;
+            this.btnOpenPicture.Click += new System.EventHandler(this.btnOpenPicture_Click);
             // 
             // tabControlContactInfos
             // 
@@ -283,6 +284,7 @@
             this.cbShowAs.Name = "cbShowAs";
             this.cbShowAs.Size = new System.Drawing.Size(331, 21);
             this.cbShowAs.TabIndex = 13;
+            this.cbShowAs.SelectedIndexChanged += new System.EventHandler(this.cbShowAs_SelectedIndexChanged);
             // 
             // lblExample
             // 
