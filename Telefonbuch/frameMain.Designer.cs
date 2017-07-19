@@ -104,6 +104,13 @@
             this.txtEmail1 = new System.Windows.Forms.TextBox();
             this.lblEmail2 = new System.Windows.Forms.Label();
             this.lblEmail1 = new System.Windows.Forms.Label();
+            this.imageListButtonsSmall = new System.Windows.Forms.ImageList(this.components);
+            this.btnDelNumber1 = new System.Windows.Forms.Button();
+            this.btnDelNumber2 = new System.Windows.Forms.Button();
+            this.btnDelNumber3 = new System.Windows.Forms.Button();
+            this.btnDelNumber4 = new System.Windows.Forms.Button();
+            this.btnDelEmail1 = new System.Windows.Forms.Button();
+            this.btnDelEmail2 = new System.Windows.Forms.Button();
             this.tabControlContactInfos.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBoxBirthday.SuspendLayout();
@@ -174,11 +181,12 @@
             // 
             // btnOpenPicture
             // 
-            this.btnOpenPicture.Location = new System.Drawing.Point(643, 223);
+            this.btnOpenPicture.ImageIndex = 1;
+            this.btnOpenPicture.ImageList = this.imageListButtonsSmall;
+            this.btnOpenPicture.Location = new System.Drawing.Point(644, 223);
             this.btnOpenPicture.Name = "btnOpenPicture";
-            this.btnOpenPicture.Size = new System.Drawing.Size(24, 23);
+            this.btnOpenPicture.Size = new System.Drawing.Size(23, 23);
             this.btnOpenPicture.TabIndex = 14;
-            this.btnOpenPicture.Text = "...";
             this.toolTipButtons.SetToolTip(this.btnOpenPicture, "Kontaktbild auswählen");
             this.btnOpenPicture.UseVisualStyleBackColor = true;
             this.btnOpenPicture.Click += new System.EventHandler(this.btnOpenPicture_Click);
@@ -405,6 +413,10 @@
             // 
             // tabPageNumbers
             // 
+            this.tabPageNumbers.Controls.Add(this.btnDelNumber4);
+            this.tabPageNumbers.Controls.Add(this.btnDelNumber3);
+            this.tabPageNumbers.Controls.Add(this.btnDelNumber2);
+            this.tabPageNumbers.Controls.Add(this.btnDelNumber1);
             this.tabPageNumbers.Controls.Add(this.cbNumber4);
             this.tabPageNumbers.Controls.Add(this.lblSlash4);
             this.tabPageNumbers.Controls.Add(this.txtNumber4);
@@ -446,15 +458,16 @@
             "Mobil",
             "Arbeit",
             "Andere"});
-            this.cbNumber4.Location = new System.Drawing.Point(471, 283);
+            this.cbNumber4.Location = new System.Drawing.Point(451, 283);
             this.cbNumber4.Name = "cbNumber4";
             this.cbNumber4.Size = new System.Drawing.Size(121, 21);
             this.cbNumber4.TabIndex = 23;
+            this.cbNumber4.SelectedIndexChanged += new System.EventHandler(this.cBoxesChanged);
             // 
             // lblSlash4
             // 
             this.lblSlash4.AutoSize = true;
-            this.lblSlash4.Location = new System.Drawing.Point(297, 286);
+            this.lblSlash4.Location = new System.Drawing.Point(277, 286);
             this.lblSlash4.Name = "lblSlash4";
             this.lblSlash4.Size = new System.Drawing.Size(12, 13);
             this.lblSlash4.TabIndex = 22;
@@ -462,21 +475,21 @@
             // 
             // txtNumber4
             // 
-            this.txtNumber4.Location = new System.Drawing.Point(311, 283);
+            this.txtNumber4.Location = new System.Drawing.Point(291, 283);
             this.txtNumber4.Name = "txtNumber4";
             this.txtNumber4.Size = new System.Drawing.Size(144, 20);
             this.txtNumber4.TabIndex = 21;
             // 
             // txtAC4
             // 
-            this.txtAC4.Location = new System.Drawing.Point(222, 283);
+            this.txtAC4.Location = new System.Drawing.Point(202, 283);
             this.txtAC4.Name = "txtAC4";
             this.txtAC4.Size = new System.Drawing.Size(73, 20);
             this.txtAC4.TabIndex = 20;
             // 
             // txtCC4
             // 
-            this.txtCC4.Location = new System.Drawing.Point(189, 283);
+            this.txtCC4.Location = new System.Drawing.Point(169, 283);
             this.txtCC4.Mask = "+00";
             this.txtCC4.Name = "txtCC4";
             this.txtCC4.Size = new System.Drawing.Size(27, 20);
@@ -486,7 +499,7 @@
             // lblNumber4
             // 
             this.lblNumber4.AutoSize = true;
-            this.lblNumber4.Location = new System.Drawing.Point(160, 286);
+            this.lblNumber4.Location = new System.Drawing.Point(140, 286);
             this.lblNumber4.Name = "lblNumber4";
             this.lblNumber4.Size = new System.Drawing.Size(23, 13);
             this.lblNumber4.TabIndex = 18;
@@ -501,15 +514,16 @@
             "Mobil",
             "Arbeit",
             "Andere"});
-            this.cbNumber3.Location = new System.Drawing.Point(471, 242);
+            this.cbNumber3.Location = new System.Drawing.Point(451, 242);
             this.cbNumber3.Name = "cbNumber3";
             this.cbNumber3.Size = new System.Drawing.Size(121, 21);
             this.cbNumber3.TabIndex = 17;
+            this.cbNumber3.SelectedIndexChanged += new System.EventHandler(this.cBoxesChanged);
             // 
             // lblSlash3
             // 
             this.lblSlash3.AutoSize = true;
-            this.lblSlash3.Location = new System.Drawing.Point(297, 245);
+            this.lblSlash3.Location = new System.Drawing.Point(277, 245);
             this.lblSlash3.Name = "lblSlash3";
             this.lblSlash3.Size = new System.Drawing.Size(12, 13);
             this.lblSlash3.TabIndex = 16;
@@ -517,21 +531,21 @@
             // 
             // txtNumber3
             // 
-            this.txtNumber3.Location = new System.Drawing.Point(311, 242);
+            this.txtNumber3.Location = new System.Drawing.Point(291, 242);
             this.txtNumber3.Name = "txtNumber3";
             this.txtNumber3.Size = new System.Drawing.Size(144, 20);
             this.txtNumber3.TabIndex = 15;
             // 
             // txtAC3
             // 
-            this.txtAC3.Location = new System.Drawing.Point(222, 242);
+            this.txtAC3.Location = new System.Drawing.Point(202, 242);
             this.txtAC3.Name = "txtAC3";
             this.txtAC3.Size = new System.Drawing.Size(73, 20);
             this.txtAC3.TabIndex = 14;
             // 
             // txtCC3
             // 
-            this.txtCC3.Location = new System.Drawing.Point(189, 242);
+            this.txtCC3.Location = new System.Drawing.Point(169, 242);
             this.txtCC3.Mask = "+00";
             this.txtCC3.Name = "txtCC3";
             this.txtCC3.Size = new System.Drawing.Size(27, 20);
@@ -541,7 +555,7 @@
             // lblNumber3
             // 
             this.lblNumber3.AutoSize = true;
-            this.lblNumber3.Location = new System.Drawing.Point(160, 245);
+            this.lblNumber3.Location = new System.Drawing.Point(140, 245);
             this.lblNumber3.Name = "lblNumber3";
             this.lblNumber3.Size = new System.Drawing.Size(23, 13);
             this.lblNumber3.TabIndex = 12;
@@ -556,15 +570,16 @@
             "Mobil",
             "Arbeit",
             "Andere"});
-            this.cbNumber2.Location = new System.Drawing.Point(471, 201);
+            this.cbNumber2.Location = new System.Drawing.Point(451, 201);
             this.cbNumber2.Name = "cbNumber2";
             this.cbNumber2.Size = new System.Drawing.Size(121, 21);
             this.cbNumber2.TabIndex = 11;
+            this.cbNumber2.SelectedIndexChanged += new System.EventHandler(this.cBoxesChanged);
             // 
             // lblSlash2
             // 
             this.lblSlash2.AutoSize = true;
-            this.lblSlash2.Location = new System.Drawing.Point(297, 204);
+            this.lblSlash2.Location = new System.Drawing.Point(277, 204);
             this.lblSlash2.Name = "lblSlash2";
             this.lblSlash2.Size = new System.Drawing.Size(12, 13);
             this.lblSlash2.TabIndex = 10;
@@ -572,21 +587,21 @@
             // 
             // txtNumber2
             // 
-            this.txtNumber2.Location = new System.Drawing.Point(311, 201);
+            this.txtNumber2.Location = new System.Drawing.Point(291, 201);
             this.txtNumber2.Name = "txtNumber2";
             this.txtNumber2.Size = new System.Drawing.Size(144, 20);
             this.txtNumber2.TabIndex = 9;
             // 
             // txtAC2
             // 
-            this.txtAC2.Location = new System.Drawing.Point(222, 201);
+            this.txtAC2.Location = new System.Drawing.Point(202, 201);
             this.txtAC2.Name = "txtAC2";
             this.txtAC2.Size = new System.Drawing.Size(73, 20);
             this.txtAC2.TabIndex = 8;
             // 
             // txtCC2
             // 
-            this.txtCC2.Location = new System.Drawing.Point(189, 201);
+            this.txtCC2.Location = new System.Drawing.Point(169, 201);
             this.txtCC2.Mask = "+00";
             this.txtCC2.Name = "txtCC2";
             this.txtCC2.Size = new System.Drawing.Size(27, 20);
@@ -596,7 +611,7 @@
             // lblNumber2
             // 
             this.lblNumber2.AutoSize = true;
-            this.lblNumber2.Location = new System.Drawing.Point(160, 204);
+            this.lblNumber2.Location = new System.Drawing.Point(140, 204);
             this.lblNumber2.Name = "lblNumber2";
             this.lblNumber2.Size = new System.Drawing.Size(23, 13);
             this.lblNumber2.TabIndex = 6;
@@ -611,15 +626,16 @@
             "Mobil",
             "Arbeit",
             "Andere"});
-            this.cbNumber1.Location = new System.Drawing.Point(471, 160);
+            this.cbNumber1.Location = new System.Drawing.Point(451, 160);
             this.cbNumber1.Name = "cbNumber1";
             this.cbNumber1.Size = new System.Drawing.Size(121, 21);
             this.cbNumber1.TabIndex = 5;
+            this.cbNumber1.SelectedIndexChanged += new System.EventHandler(this.cBoxesChanged);
             // 
             // lblSlash1
             // 
             this.lblSlash1.AutoSize = true;
-            this.lblSlash1.Location = new System.Drawing.Point(297, 163);
+            this.lblSlash1.Location = new System.Drawing.Point(277, 163);
             this.lblSlash1.Name = "lblSlash1";
             this.lblSlash1.Size = new System.Drawing.Size(12, 13);
             this.lblSlash1.TabIndex = 4;
@@ -627,21 +643,21 @@
             // 
             // txtNumber1
             // 
-            this.txtNumber1.Location = new System.Drawing.Point(311, 160);
+            this.txtNumber1.Location = new System.Drawing.Point(291, 160);
             this.txtNumber1.Name = "txtNumber1";
             this.txtNumber1.Size = new System.Drawing.Size(144, 20);
             this.txtNumber1.TabIndex = 3;
             // 
             // txtAC1
             // 
-            this.txtAC1.Location = new System.Drawing.Point(222, 160);
+            this.txtAC1.Location = new System.Drawing.Point(202, 160);
             this.txtAC1.Name = "txtAC1";
             this.txtAC1.Size = new System.Drawing.Size(73, 20);
             this.txtAC1.TabIndex = 2;
             // 
             // txtCC1
             // 
-            this.txtCC1.Location = new System.Drawing.Point(189, 160);
+            this.txtCC1.Location = new System.Drawing.Point(169, 160);
             this.txtCC1.Mask = "+00";
             this.txtCC1.Name = "txtCC1";
             this.txtCC1.Size = new System.Drawing.Size(27, 20);
@@ -651,7 +667,7 @@
             // lblNumber1
             // 
             this.lblNumber1.AutoSize = true;
-            this.lblNumber1.Location = new System.Drawing.Point(160, 163);
+            this.lblNumber1.Location = new System.Drawing.Point(140, 163);
             this.lblNumber1.Name = "lblNumber1";
             this.lblNumber1.Size = new System.Drawing.Size(23, 13);
             this.lblNumber1.TabIndex = 0;
@@ -789,6 +805,8 @@
             // 
             // groupBoxEmail
             // 
+            this.groupBoxEmail.Controls.Add(this.btnDelEmail2);
+            this.groupBoxEmail.Controls.Add(this.btnDelEmail1);
             this.groupBoxEmail.Controls.Add(this.cbEmail2);
             this.groupBoxEmail.Controls.Add(this.cbEmail1);
             this.groupBoxEmail.Controls.Add(this.txtEmail2);
@@ -810,10 +828,11 @@
             "Privat",
             "Arbeit",
             "Andere"});
-            this.cbEmail2.Location = new System.Drawing.Point(532, 61);
+            this.cbEmail2.Location = new System.Drawing.Point(517, 61);
             this.cbEmail2.Name = "cbEmail2";
             this.cbEmail2.Size = new System.Drawing.Size(121, 21);
             this.cbEmail2.TabIndex = 5;
+            this.cbEmail2.SelectedIndexChanged += new System.EventHandler(this.cBoxesChanged);
             // 
             // cbEmail1
             // 
@@ -823,21 +842,22 @@
             "Privat",
             "Arbeit",
             "Andere"});
-            this.cbEmail1.Location = new System.Drawing.Point(532, 24);
+            this.cbEmail1.Location = new System.Drawing.Point(517, 24);
             this.cbEmail1.Name = "cbEmail1";
             this.cbEmail1.Size = new System.Drawing.Size(121, 21);
             this.cbEmail1.TabIndex = 3;
+            this.cbEmail1.SelectedIndexChanged += new System.EventHandler(this.cBoxesChanged);
             // 
             // txtEmail2
             // 
-            this.txtEmail2.Location = new System.Drawing.Point(98, 61);
+            this.txtEmail2.Location = new System.Drawing.Point(83, 61);
             this.txtEmail2.Name = "txtEmail2";
             this.txtEmail2.Size = new System.Drawing.Size(428, 20);
             this.txtEmail2.TabIndex = 4;
             // 
             // txtEmail1
             // 
-            this.txtEmail1.Location = new System.Drawing.Point(98, 24);
+            this.txtEmail1.Location = new System.Drawing.Point(83, 24);
             this.txtEmail1.Name = "txtEmail1";
             this.txtEmail1.Size = new System.Drawing.Size(428, 20);
             this.txtEmail1.TabIndex = 2;
@@ -845,7 +865,7 @@
             // lblEmail2
             // 
             this.lblEmail2.AutoSize = true;
-            this.lblEmail2.Location = new System.Drawing.Point(69, 64);
+            this.lblEmail2.Location = new System.Drawing.Point(54, 64);
             this.lblEmail2.Name = "lblEmail2";
             this.lblEmail2.Size = new System.Drawing.Size(23, 13);
             this.lblEmail2.TabIndex = 1;
@@ -854,11 +874,84 @@
             // lblEmail1
             // 
             this.lblEmail1.AutoSize = true;
-            this.lblEmail1.Location = new System.Drawing.Point(69, 27);
+            this.lblEmail1.Location = new System.Drawing.Point(54, 27);
             this.lblEmail1.Name = "lblEmail1";
             this.lblEmail1.Size = new System.Drawing.Size(23, 13);
             this.lblEmail1.TabIndex = 0;
             this.lblEmail1.Text = "#1:";
+            // 
+            // imageListButtonsSmall
+            // 
+            this.imageListButtonsSmall.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListButtonsSmall.ImageStream")));
+            this.imageListButtonsSmall.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListButtonsSmall.Images.SetKeyName(0, "delete.png");
+            this.imageListButtonsSmall.Images.SetKeyName(1, "camera.png");
+            // 
+            // btnDelNumber1
+            // 
+            this.btnDelNumber1.ImageIndex = 0;
+            this.btnDelNumber1.ImageList = this.imageListButtonsSmall;
+            this.btnDelNumber1.Location = new System.Drawing.Point(588, 159);
+            this.btnDelNumber1.Name = "btnDelNumber1";
+            this.btnDelNumber1.Size = new System.Drawing.Size(23, 23);
+            this.btnDelNumber1.TabIndex = 24;
+            this.btnDelNumber1.UseVisualStyleBackColor = true;
+            this.btnDelNumber1.Click += new System.EventHandler(this.btnDeleteClicked);
+            // 
+            // btnDelNumber2
+            // 
+            this.btnDelNumber2.ImageIndex = 0;
+            this.btnDelNumber2.ImageList = this.imageListButtonsSmall;
+            this.btnDelNumber2.Location = new System.Drawing.Point(588, 200);
+            this.btnDelNumber2.Name = "btnDelNumber2";
+            this.btnDelNumber2.Size = new System.Drawing.Size(23, 23);
+            this.btnDelNumber2.TabIndex = 25;
+            this.btnDelNumber2.UseVisualStyleBackColor = true;
+            this.btnDelNumber2.Click += new System.EventHandler(this.btnDeleteClicked);
+            // 
+            // btnDelNumber3
+            // 
+            this.btnDelNumber3.ImageIndex = 0;
+            this.btnDelNumber3.ImageList = this.imageListButtonsSmall;
+            this.btnDelNumber3.Location = new System.Drawing.Point(588, 241);
+            this.btnDelNumber3.Name = "btnDelNumber3";
+            this.btnDelNumber3.Size = new System.Drawing.Size(23, 23);
+            this.btnDelNumber3.TabIndex = 26;
+            this.btnDelNumber3.UseVisualStyleBackColor = true;
+            this.btnDelNumber3.Click += new System.EventHandler(this.btnDeleteClicked);
+            // 
+            // btnDelNumber4
+            // 
+            this.btnDelNumber4.ImageIndex = 0;
+            this.btnDelNumber4.ImageList = this.imageListButtonsSmall;
+            this.btnDelNumber4.Location = new System.Drawing.Point(588, 282);
+            this.btnDelNumber4.Name = "btnDelNumber4";
+            this.btnDelNumber4.Size = new System.Drawing.Size(23, 23);
+            this.btnDelNumber4.TabIndex = 27;
+            this.btnDelNumber4.UseVisualStyleBackColor = true;
+            this.btnDelNumber4.Click += new System.EventHandler(this.btnDeleteClicked);
+            // 
+            // btnDelEmail1
+            // 
+            this.btnDelEmail1.ImageIndex = 0;
+            this.btnDelEmail1.ImageList = this.imageListButtonsSmall;
+            this.btnDelEmail1.Location = new System.Drawing.Point(644, 23);
+            this.btnDelEmail1.Name = "btnDelEmail1";
+            this.btnDelEmail1.Size = new System.Drawing.Size(23, 23);
+            this.btnDelEmail1.TabIndex = 25;
+            this.btnDelEmail1.UseVisualStyleBackColor = true;
+            this.btnDelEmail1.Click += new System.EventHandler(this.btnDeleteClicked);
+            // 
+            // btnDelEmail2
+            // 
+            this.btnDelEmail2.ImageIndex = 0;
+            this.btnDelEmail2.ImageList = this.imageListButtonsSmall;
+            this.btnDelEmail2.Location = new System.Drawing.Point(644, 60);
+            this.btnDelEmail2.Name = "btnDelEmail2";
+            this.btnDelEmail2.Size = new System.Drawing.Size(23, 23);
+            this.btnDelEmail2.TabIndex = 26;
+            this.btnDelEmail2.UseVisualStyleBackColor = true;
+            this.btnDelEmail2.Click += new System.EventHandler(this.btnDeleteClicked);
             // 
             // frameMain
             // 
@@ -974,6 +1067,13 @@
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.GroupBox groupBoxBirthday;
         private System.Windows.Forms.DateTimePicker datePickerBirthday;
+        private System.Windows.Forms.ImageList imageListButtonsSmall;
+        private System.Windows.Forms.Button btnDelNumber4;
+        private System.Windows.Forms.Button btnDelNumber3;
+        private System.Windows.Forms.Button btnDelNumber2;
+        private System.Windows.Forms.Button btnDelNumber1;
+        private System.Windows.Forms.Button btnDelEmail2;
+        private System.Windows.Forms.Button btnDelEmail1;
     }
 }
 
