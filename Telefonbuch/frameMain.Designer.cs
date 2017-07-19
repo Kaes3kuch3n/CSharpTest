@@ -39,6 +39,8 @@
             this.btnOpenPicture = new System.Windows.Forms.Button();
             this.tabControlContactInfos = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.groupBoxBirthday = new System.Windows.Forms.GroupBox();
+            this.datePickerBirthday = new System.Windows.Forms.DateTimePicker();
             this.lblPicture = new System.Windows.Forms.Label();
             this.pictureBoxContact = new System.Windows.Forms.PictureBox();
             this.groupBoxShowAs = new System.Windows.Forms.GroupBox();
@@ -93,6 +95,8 @@
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtZipCode = new System.Windows.Forms.TextBox();
             this.tabPageOther = new System.Windows.Forms.TabPage();
+            this.txtNotes = new System.Windows.Forms.RichTextBox();
+            this.lblNotes = new System.Windows.Forms.Label();
             this.groupBoxEmail = new System.Windows.Forms.GroupBox();
             this.cbEmail2 = new System.Windows.Forms.ComboBox();
             this.cbEmail1 = new System.Windows.Forms.ComboBox();
@@ -100,12 +104,9 @@
             this.txtEmail1 = new System.Windows.Forms.TextBox();
             this.lblEmail2 = new System.Windows.Forms.Label();
             this.lblEmail1 = new System.Windows.Forms.Label();
-            this.lblNotes = new System.Windows.Forms.Label();
-            this.txtNotes = new System.Windows.Forms.RichTextBox();
-            this.groupBoxBirthday = new System.Windows.Forms.GroupBox();
-            this.datePickerBirthday = new System.Windows.Forms.DateTimePicker();
             this.tabControlContactInfos.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
+            this.groupBoxBirthday.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContact)).BeginInit();
             this.groupBoxShowAs.SuspendLayout();
             this.groupBoxGender.SuspendLayout();
@@ -113,7 +114,6 @@
             this.tabPageAddress.SuspendLayout();
             this.tabPageOther.SuspendLayout();
             this.groupBoxEmail.SuspendLayout();
-            this.groupBoxBirthday.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNew
@@ -218,6 +218,27 @@
             this.tabPageGeneral.TabIndex = 4;
             this.tabPageGeneral.Text = "Allgemeines";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxBirthday
+            // 
+            this.groupBoxBirthday.Controls.Add(this.datePickerBirthday);
+            this.groupBoxBirthday.Location = new System.Drawing.Point(467, 294);
+            this.groupBoxBirthday.Name = "groupBoxBirthday";
+            this.groupBoxBirthday.Size = new System.Drawing.Size(200, 62);
+            this.groupBoxBirthday.TabIndex = 15;
+            this.groupBoxBirthday.TabStop = false;
+            this.groupBoxBirthday.Text = "Geburtstag";
+            // 
+            // datePickerBirthday
+            // 
+            this.datePickerBirthday.CustomFormat = "dddd, dd.mm.yyyy";
+            this.datePickerBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datePickerBirthday.Location = new System.Drawing.Point(23, 23);
+            this.datePickerBirthday.MaxDate = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
+            this.datePickerBirthday.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.datePickerBirthday.Name = "datePickerBirthday";
+            this.datePickerBirthday.Size = new System.Drawing.Size(155, 20);
+            this.datePickerBirthday.TabIndex = 0;
             // 
             // lblPicture
             // 
@@ -747,6 +768,23 @@
             this.tabPageOther.Text = "Sonstiges";
             this.tabPageOther.UseVisualStyleBackColor = true;
             // 
+            // txtNotes
+            // 
+            this.txtNotes.Location = new System.Drawing.Point(25, 174);
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.Size = new System.Drawing.Size(702, 275);
+            this.txtNotes.TabIndex = 3;
+            this.txtNotes.Text = "";
+            // 
+            // lblNotes
+            // 
+            this.lblNotes.AutoSize = true;
+            this.lblNotes.Location = new System.Drawing.Point(22, 158);
+            this.lblNotes.Name = "lblNotes";
+            this.lblNotes.Size = new System.Drawing.Size(46, 13);
+            this.lblNotes.TabIndex = 2;
+            this.lblNotes.Text = "Notizen:";
+            // 
             // groupBoxEmail
             // 
             this.groupBoxEmail.Controls.Add(this.cbEmail2);
@@ -820,44 +858,6 @@
             this.lblEmail1.TabIndex = 0;
             this.lblEmail1.Text = "#1:";
             // 
-            // lblNotes
-            // 
-            this.lblNotes.AutoSize = true;
-            this.lblNotes.Location = new System.Drawing.Point(22, 158);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(46, 13);
-            this.lblNotes.TabIndex = 2;
-            this.lblNotes.Text = "Notizen:";
-            // 
-            // txtNotes
-            // 
-            this.txtNotes.Location = new System.Drawing.Point(25, 174);
-            this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(702, 275);
-            this.txtNotes.TabIndex = 3;
-            this.txtNotes.Text = "";
-            // 
-            // groupBoxBirthday
-            // 
-            this.groupBoxBirthday.Controls.Add(this.datePickerBirthday);
-            this.groupBoxBirthday.Location = new System.Drawing.Point(467, 294);
-            this.groupBoxBirthday.Name = "groupBoxBirthday";
-            this.groupBoxBirthday.Size = new System.Drawing.Size(200, 62);
-            this.groupBoxBirthday.TabIndex = 15;
-            this.groupBoxBirthday.TabStop = false;
-            this.groupBoxBirthday.Text = "Geburtstag";
-            // 
-            // datePickerBirthday
-            // 
-            this.datePickerBirthday.CustomFormat = "dddd, dd.mm.yyyy";
-            this.datePickerBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePickerBirthday.Location = new System.Drawing.Point(23, 23);
-            this.datePickerBirthday.MaxDate = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
-            this.datePickerBirthday.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.datePickerBirthday.Name = "datePickerBirthday";
-            this.datePickerBirthday.Size = new System.Drawing.Size(155, 20);
-            this.datePickerBirthday.TabIndex = 0;
-            // 
             // frameMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -878,6 +878,7 @@
             this.tabControlContactInfos.ResumeLayout(false);
             this.tabPageGeneral.ResumeLayout(false);
             this.tabPageGeneral.PerformLayout();
+            this.groupBoxBirthday.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContact)).EndInit();
             this.groupBoxShowAs.ResumeLayout(false);
             this.groupBoxShowAs.PerformLayout();
@@ -891,7 +892,6 @@
             this.tabPageOther.PerformLayout();
             this.groupBoxEmail.ResumeLayout(false);
             this.groupBoxEmail.PerformLayout();
-            this.groupBoxBirthday.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
