@@ -475,8 +475,8 @@ namespace Telefonbuch
                     sSaveName = firstName + " " + name + ".card";
                     return firstName + " " + name;
                 case "NVS":
-                    sSaveName = name + ", " + firstName + " (\"" + nickName + "\").card";
-                    return name + ", " + firstName + " (\"" + nickName + "\")";
+                    sSaveName = name + ", " + firstName + " (" + nickName + ").card";
+                    return name + ", " + firstName + " (" + nickName + ")";
                 case "TVN":
                     sSaveName = title + " " + firstName + " " + name + ".card";
                     return title + " " + firstName + " " + name;

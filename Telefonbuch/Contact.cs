@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -134,18 +135,30 @@ namespace Telefonbuch
         /// </summary>
         /// <param name="path">Speicherort des Kontakts</param>
         /// <returns>Gibt true zurück, wenn der Speichervorgang erfolgreich war</returns>
-        public bool SaveContact(string path)
+        public bool SaveContact(string path, string key, string iv)
         {
             string fullPath = path + ReplaceBadChars(sSaveName);
 
             if (!File.Exists(fullPath))
             {
+                FileStream stream = null;
+                CryptoStream cryptoStream = null;
+                BinaryFormatter formatter = null;
+
                 try
                 {
-                    FileStream stream = new FileStream(fullPath, FileMode.Create);
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    formatter.Serialize(stream, this);
+                    stream = new FileStream(fullPath, FileMode.Create);
+                    cryptoStream = new CryptoStream(stream, CryptByKey(key, iv).CreateEncryptor(), CryptoStreamMode.Write);
+                    formatter = new BinaryFormatter();
+
+                    formatter.Serialize(cryptoStream, this);
+
+                    stream.Flush();
+                    cryptoStream.Flush();
+                    cryptoStream.Close();
                     stream.Close();
+
+                    return true;
                 }
                 catch (Exception)
                 {
@@ -197,6 +210,27 @@ namespace Telefonbuch
             stream.Close();
 
             return sImg;
+        }
+
+        private Rijndael CryptByKey(string key, string iv)
+        {
+            Rijndael rj = Rijndael.Create();
+            rj.Key = ASCIIEncoding.ASCII.GetBytes(PaddKey(key));
+            rj.IV = ASCIIEncoding.ASCII.GetBytes(PaddKey(iv));
+            rj.Padding = PaddingMode.Zeros;
+            return rj;
+        }
+
+        private string PaddKey(string key)
+        {
+            if (key.Length % 2 == 0)
+            {
+                return key.PadLeft(16, (char)(key.Length + 64));
+            }
+            else
+            {
+                return key.PadRight(16, (char)(90 - key.Length));
+            }
         }
     }
 }

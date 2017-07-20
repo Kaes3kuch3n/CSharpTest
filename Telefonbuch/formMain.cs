@@ -13,6 +13,11 @@ namespace Telefonbuch
 {
     public partial class formMain : Form
     {
+        #region "Constants"
+        private const string sKEY = "DD)Fbsly9!K§s;*D";
+        private const string sIV = "'8iV1N_yu,V5D4WU";
+        #endregion
+
         #region "Strings"
         string sPath;
 
@@ -290,7 +295,7 @@ namespace Telefonbuch
             }
 
             Contact c = new Contact(p);
-            if (c.SaveContact(sPath))
+            if (c.SaveContact(sPath, sKEY, sIV))
             {
                 MessageBox.Show("Der Kontakt wurde gespeichert!", "Gespeichert!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
