@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,9 @@ namespace Telefonbuch
 {
     public partial class formMain : Form
     {
-        #region "Variablen"
-
         #region "Strings"
+        string sPath;
+
         string sNumberType1 = "";
         string sNumberType2 = "";
         string sNumberType3 = "";
@@ -52,6 +53,7 @@ namespace Telefonbuch
         string sAC2 = "";
         string sAC3 = "";
         string sAC4 = "";
+        string sBirthday = "";
         #endregion
 
         #region "Integers"
@@ -60,17 +62,13 @@ namespace Telefonbuch
 
         #region "Sonstiges"
         Image imgContact = Telefonbuch.Properties.Resources.contact;
-        DateTime dtBirthday;
-        #endregion
-
+        Preview p;
         #endregion
 
         public formMain()
         {
             InitializeComponent();
         }
-
-        #region "Functions"
 
         #region "GUI-Functions"
 
@@ -79,7 +77,7 @@ namespace Telefonbuch
         {
             tabControlContactInfos.Visible = true;
             btnPreview.Visible = true;
-            btnSave.Visible = true;
+            btnNew.Visible = false;
         }
 
         //ComboBox "Anzeigen als" Auswahl geändert
@@ -248,45 +246,67 @@ namespace Telefonbuch
         {
             saveVars();
 
-            formPreview fPre = new formPreview();
-            fPre.Text += prepareShowAsPreview(sName, sFirstName, sNickName, sTitle, sShowAsType);
+            p = new Preview(sName, sFirstName, sShowAsType, iGender);
+            p.SetGeneralVars(sNickName, sTitle, sBirthday, imgContact);
+            p.SetPhoneNumberVars(sCC1, sCC2, sCC3, sCC4, sAC1, sAC2, sAC3, sAC4, sNr1, sNr2, sNr3, sNr4, sNumberType1, sNumberType2, sNumberType3, sNumberType4);
+            p.SetAddressVars(sStreet, sHouseNumber, sZipCode, sCity, sCountry);
+            p.SetWorkAddressVars(sWorkName, sStreet2, sHouseNumber2, sZipCode2, sCity2, sCountry2);
+            p.SetOtherVars(sEmail1, sEmail2, sEmailType1, sEmailType2, sNotes);
 
-            fPre.lblEmailPH1.Text = prepareMailPreview(sEmail1, sEmailType1);
-            fPre.lblEmailPH2.Text = prepareMailPreview(sEmail2, sEmailType2);
+            if (p.ShowPreview())
+            {
+                btnSave.Visible = true;
+                btnEdit.Visible = true;
+                btnOpen.Visible = false;
+                btnPreview.Visible = false;
+                tabControlContactInfos.Enabled = false;
+            }
 
-            fPre.lblNumberPH1.Text = prepareNumbersPreview(sNumberType1, iCC1, iAC1, sNr1);
-            fPre.lblNumberPH2.Text = prepareNumbersPreview(sNumberType2, iCC2, iAC2, sNr2);
-            fPre.lblNumberPH3.Text = prepareNumbersPreview(sNumberType3, iCC3, iAC3, sNr3);
-            fPre.lblNumberPH4.Text = prepareNumbersPreview(sNumberType4, iCC4, iAC4, sNr4);
+        }
 
-            fPre.lblGenderPH.Text = prepareGenderPreview(iGender);
+        //Button "Bearbeiten"
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            btnEdit.Visible = false;
+            btnSave.Visible = false;
+            btnOpen.Visible = true;
+            btnPreview.Visible = true;
+            tabControlContactInfos.Enabled = true;
+        }
 
-            fPre.lblNamePH.Text = sName;
-            fPre.lblFirstNamePH.Text = sFirstName;
-            fPre.lblNickNamePH.Text = sNickName;
-            fPre.lblTitlePH.Text = sTitle;
-            fPre.lblStreetPH.Text = sStreet;
-            fPre.lblHouseNumberPH.Text = sHouseNumber;
-            fPre.lblZipCodePH.Text = sZipCode;
-            fPre.lblCityPH.Text = sCity;
-            fPre.lblCountryPH.Text = sCountry;
-            fPre.lblWorkNamePH.Text = sWorkName;
-            fPre.lblStreetPH2.Text = sStreet2;
-            fPre.lblHouseNumberPH2.Text = sHouseNumber2;
-            fPre.lblZipCodePH2.Text = sZipCode2;
-            fPre.lblCityPH2.Text = sCity2;
-            fPre.lblCountryPH2.Text = sCountry2;
-            fPre.lblNotesPH.Text = sNotes;
+        //Button "Öffnen"
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
 
-            fPre.lblBirthdayPH.Text = dtBirthday.ToString("dddd, dd.mm.yyyy");
-            fPre.pictureBoxContact.Image = imgContact;
+        }
 
-            fPre.Show();
+        //Button "Save"
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            sPath = Directory.GetCurrentDirectory() + "\\contacts\\";
+            if (!Directory.Exists(sPath))
+            {
+                Directory.CreateDirectory(sPath);
+            }
+
+            Contact c = new Contact(p);
+            if (c.SaveContact(sPath))
+            {
+                MessageBox.Show("Der Kontakt wurde gespeichert!", "Gespeichert!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.btnNew.Visible = true;
+                this.btnOpen.Visible = true;
+                this.btnPreview.Visible = false;
+                this.btnEdit.Visible = false;
+                this.btnSave.Visible = false;
+                this.tabControlContactInfos.Enabled = true;
+                this.tabControlContactInfos.Visible = false;
+                
+                ClearAllContent();
+            }
         }
 
         #endregion
-
-        #region "Functions"
 
         //Save form content to vars
         void saveVars()
@@ -295,6 +315,7 @@ namespace Telefonbuch
             sFirstName = txtFirstName.Text;
             sNickName = txtNickname.Text;
             sTitle = txtTitle.Text;
+            sBirthday = txtBirthday.Text;
             sStreet = txtStreet.Text;
             sHouseNumber = txtHouseNumber.Text;
             sZipCode = txtZipCode.Text;
@@ -336,80 +357,50 @@ namespace Telefonbuch
             {
                 iGender = 2;
             }
-
-            dtBirthday = datePickerBirthday.Value;
         }
-
-        //Preview title
-        string prepareShowAsPreview(string name, string firstName, string nickName, string title, string showAsType)
+        
+        void ClearAllContent()
         {
-            switch (showAsType)
-            {
-                case "NV":
-                    return name + ", " + firstName;
-                case "VN":
-                    return firstName + " " + name;
-                case "NVS":
-                    return name + ", " + firstName + " (\"" + nickName + "\")";
-                case "TVN":
-                    return title + " " + firstName + " " + name;
-                default:
-                    return name + ", " + firstName;
-            }
-        }
-
-        //Preview mail
-        string prepareMailPreview(string email, string emailType)
-        {
-            if (email == "")
-            {
-                return "-----";
-            }
-            else
-            {
-                return email + " (" + emailType + ")";
-            }
-        }
-
-        //Preview numbers
-        string prepareNumbersPreview(string numberType, int cc, int ac, string number)
-        {
-            if (ac == 0 && number == "")
-            {
-                return "-----";
-            }
-            else
-            {
-                return "+" + cc + " " + ac + "/" + number + " (" + numberType + ")";
-            }
-        }
-
-        //Preview gender
-        string prepareGenderPreview(int gender)
-        {
-            switch (gender)
-            {
-                case 0:
-                    return "Weiblich";
-                case 1:
-                    return "Männlich";
-                case 2:
-                    return "Anderes";
-                default:
-                    return "-----";
-            }
-        }
-
-        #endregion
-
-        #endregion
-
-        //Test button
-        private void btnOpen_Click(object sender, EventArgs e)
-        {
-            Preview p = new Preview("Mustermann", "Max", "NV", Gender.MALE);
-
-            p.ShowPreview();
+            cbNumber1.SelectedIndex = -1;
+            txtCC1.Text = "49";
+            txtAC1.Text = "";
+            txtNumber1.Text = "";
+            cbNumber2.SelectedIndex = -1;
+            txtCC2.Text = "49";
+            txtAC2.Text = "";
+            txtNumber2.Text = "";
+            cbNumber3.SelectedIndex = -1;
+            txtCC3.Text = "49";
+            txtAC3.Text = "";
+            txtNumber3.Text = "";
+            cbNumber4.SelectedIndex = -1;
+            txtCC4.Text = "49";
+            txtAC4.Text = "";
+            txtNumber4.Text = "";
+            cbEmail1.SelectedIndex = -1;
+            txtEmail1.Text = "";
+            cbEmail2.SelectedIndex = -1;
+            txtEmail2.Text = "";
+            pictureBoxContact.Image = Telefonbuch.Properties.Resources.contact;
+            cbShowAs.SelectedIndex = -1;
+            rbFemale.Checked = true;
+            txtNotes.Text = "";
+            txtName.Text = "";
+            txtFirstName.Text = "";
+            txtNickname.Text = "";
+            txtTitle.Text = "";
+            txtBirthday.Text = "";
+            txtStreet.Text = "";
+            txtHouseNumber.Text = "";
+            txtZipCode.Text = "";
+            txtCity.Text = "";
+            txtCountry.Text = "";
+            txtWorkName.Text = "";
+            txtStreet2.Text = "";
+            txtHouseNumber2.Text = "";
+            txtZipCode2.Text = "";
+            txtCity2.Text = "";
+            txtCountry2.Text = "";
         }
     }
 }

@@ -38,10 +38,11 @@
             this.toolTipButtons = new System.Windows.Forms.ToolTip(this.components);
             this.btnOpenPicture = new System.Windows.Forms.Button();
             this.imageListButtonsSmall = new System.Windows.Forms.ImageList(this.components);
+            this.btnEdit = new System.Windows.Forms.Button();
             this.tabControlContactInfos = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
             this.groupBoxBirthday = new System.Windows.Forms.GroupBox();
-            this.datePickerBirthday = new System.Windows.Forms.DateTimePicker();
+            this.txtBirthday = new System.Windows.Forms.MaskedTextBox();
             this.lblPicture = new System.Windows.Forms.Label();
             this.pictureBoxContact = new System.Windows.Forms.PictureBox();
             this.groupBoxShowAs = new System.Windows.Forms.GroupBox();
@@ -159,6 +160,7 @@
             this.imageListButtons.Images.SetKeyName(1, "open.png");
             this.imageListButtons.Images.SetKeyName(2, "preview.png");
             this.imageListButtons.Images.SetKeyName(3, "save.png");
+            this.imageListButtons.Images.SetKeyName(4, "edit.png");
             // 
             // btnOpen
             // 
@@ -196,6 +198,7 @@
             this.toolTipButtons.SetToolTip(this.btnSave, "Kontakt speichern");
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Visible = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnOpenPicture
             // 
@@ -215,6 +218,19 @@
             this.imageListButtonsSmall.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListButtonsSmall.Images.SetKeyName(0, "delete.png");
             this.imageListButtonsSmall.Images.SetKeyName(1, "camera.png");
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.ImageIndex = 4;
+            this.btnEdit.ImageList = this.imageListButtons;
+            this.btnEdit.Location = new System.Drawing.Point(164, 12);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(32, 32);
+            this.btnEdit.TabIndex = 5;
+            this.toolTipButtons.SetToolTip(this.btnEdit, "Kontakt bearbeiten");
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Visible = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // tabControlContactInfos
             // 
@@ -255,7 +271,7 @@
             // 
             // groupBoxBirthday
             // 
-            this.groupBoxBirthday.Controls.Add(this.datePickerBirthday);
+            this.groupBoxBirthday.Controls.Add(this.txtBirthday);
             this.groupBoxBirthday.Location = new System.Drawing.Point(467, 294);
             this.groupBoxBirthday.Name = "groupBoxBirthday";
             this.groupBoxBirthday.Size = new System.Drawing.Size(200, 62);
@@ -263,16 +279,13 @@
             this.groupBoxBirthday.TabStop = false;
             this.groupBoxBirthday.Text = "Geburtstag";
             // 
-            // datePickerBirthday
+            // txtBirthday
             // 
-            this.datePickerBirthday.CustomFormat = "dddd, dd.mm.yyyy";
-            this.datePickerBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePickerBirthday.Location = new System.Drawing.Point(23, 23);
-            this.datePickerBirthday.MaxDate = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
-            this.datePickerBirthday.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.datePickerBirthday.Name = "datePickerBirthday";
-            this.datePickerBirthday.Size = new System.Drawing.Size(155, 20);
-            this.datePickerBirthday.TabIndex = 0;
+            this.txtBirthday.Location = new System.Drawing.Point(70, 24);
+            this.txtBirthday.Mask = "00.00.0000";
+            this.txtBirthday.Name = "txtBirthday";
+            this.txtBirthday.Size = new System.Drawing.Size(60, 20);
+            this.txtBirthday.TabIndex = 0;
             // 
             // lblPicture
             // 
@@ -1104,6 +1117,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.tabControlContactInfos);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnPreview);
@@ -1120,6 +1134,7 @@
             this.tabPageGeneral.ResumeLayout(false);
             this.tabPageGeneral.PerformLayout();
             this.groupBoxBirthday.ResumeLayout(false);
+            this.groupBoxBirthday.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContact)).EndInit();
             this.groupBoxShowAs.ResumeLayout(false);
             this.groupBoxShowAs.PerformLayout();
@@ -1215,7 +1230,6 @@
         private System.Windows.Forms.RichTextBox txtNotes;
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.GroupBox groupBoxBirthday;
-        private System.Windows.Forms.DateTimePicker datePickerBirthday;
         private System.Windows.Forms.ImageList imageListButtonsSmall;
         private System.Windows.Forms.Button btnDelNumber4;
         private System.Windows.Forms.Button btnDelNumber3;
@@ -1237,6 +1251,8 @@
         private System.Windows.Forms.GroupBox groupBoxAddress1;
         private System.Windows.Forms.TextBox txtWorkName;
         private System.Windows.Forms.Label lblWorkName;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.MaskedTextBox txtBirthday;
     }
 }
 

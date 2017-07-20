@@ -8,79 +8,82 @@ using System.Windows.Forms;
 
 namespace Telefonbuch
 {
-    class Preview
+    public class Preview
     {
+        internal string sSaveName;
+
         #region "Constructor-Variables"
 
-        private string sName;
-        private string sFirstName;
-        private string sShowAs;
-        private int iGender;
+        internal string sName;
+        internal string sFirstName;
+        internal string sShowAs;
+        internal int iGender;
 
         #endregion
 
         #region "General"
 
-        private string sNickName;
-        private string sTitle;
-        private DateTime dtBirthday;
-        private Image imgContactImage;
+        internal string sNickName;
+        internal string sTitle;
+        private string sBirthday;
+        internal DateTime dtBirthday;
+        internal Image imgContactImage;
 
         #endregion
 
         #region "Phone Numbers"
 
-        private string sNumberType1;
-        private string sNumberType2;
-        private string sNumberType3;
-        private string sNumberType4;
-        private string sNr1;
-        private string sNr2;
-        private string sNr3;
-        private string sNr4;
-        private string sCC1;
-        private string sCC2;
-        private string sCC3;
-        private string sCC4;
+        internal string sNumberType1;
+        internal string sNumberType2;
+        internal string sNumberType3;
+        internal string sNumberType4;
+        internal string sNr1;
+        internal string sNr2;
+        internal string sNr3;
+        internal string sNr4;
+        internal string sCC1;
+        internal string sCC2;
+        internal string sCC3;
+        internal string sCC4;
         private string sAC1;
         private string sAC2;
         private string sAC3;
         private string sAC4;
-        private int iAC1;
-        private int iAC2;
-        private int iAC3;
-        private int iAC4;
+        internal int iAC1;
+        internal int iAC2;
+        internal int iAC3;
+        internal int iAC4;
 
         #endregion
 
         #region "Address"
 
-        private string sStreet;
-        private string sHouseNr;
-        private string sZipCode;
-        private string sCity;
-        private string sCountry;
+        internal string sStreet;
+        internal string sHouseNr;
+        internal string sZipCode;
+        internal string sCity;
+        internal string sCountry;
 
         #endregion
 
         #region "Work Address"
 
-        private string sWorkName;
-        private string sStreet2;
-        private string sHouseNr2;
-        private string sZipCode2;
-        private string sCity2;
-        private string sCountry2;
+        internal string sWorkName;
+        internal string sStreet2;
+        internal string sHouseNr2;
+        internal string sZipCode2;
+        internal string sCity2;
+        internal string sCountry2;
 
         #endregion
 
         #region "Other"
 
-        private string sMailType1;
-        private string sMailType2;
-        private string sMail1;
-        private string sMail2;
-        private string sNotes;
+        internal string sMailType1;
+        internal string sMailType2;
+        internal string sMail1;
+        internal string sMail2;
+        internal string sNotes;
 
         #endregion
 
@@ -100,6 +103,8 @@ namespace Telefonbuch
             this.iGender = gender;
         }
 
+        #region "Set Vars"
+
         /// <summary>
         /// Setzt die Variablen des Tabs "Allgemein".
         /// </summary>
@@ -107,11 +112,11 @@ namespace Telefonbuch
         /// <param name="title">Titel des Kontaktes</param>
         /// <param name="birthday">Geburtstag des Kontaktes</param>
         /// <param name="contactImage">Foto des Kontaktes</param>
-        public void SetGeneralVars(string nickName, string title, DateTime birthday, Image contactImage)
+        public void SetGeneralVars(string nickName, string title, string birthday, Image contactImage)
         {
             this.sNickName = nickName;
             this.sTitle = title;
-            this.dtBirthday = birthday;
+            this.sBirthday = birthday;
             this.imgContactImage = contactImage;
         }
 
@@ -208,18 +213,54 @@ namespace Telefonbuch
             this.sNotes = notes;
         }
 
+        #endregion
+
         /// <summary>
         /// Blendet das Preview-Fenster ein. Zuvor wird eine Überprüfung auf Vollständigkeit und Formfehler durchgeführt.
         /// </summary>
-        public void ShowPreview()
+        public bool ShowPreview()
         {
             if (CheckIfOkay())
             {
-                formPreview preview = new formPreview();
-                preview.lblNamePH.Text = sName;
-                preview.lblFirstNamePH.Text = sFirstName;
-                preview.Show();
+                formPreview fPre = new formPreview();
+                fPre.Text += prepareShowAsPreview(sName, sFirstName, sNickName, sTitle, sShowAs);
+
+                fPre.lblEmailPH1.Text = prepareMailPreview(sMail1, sMailType1);
+                fPre.lblEmailPH2.Text = prepareMailPreview(sMail2, sMailType2);
+
+                fPre.lblNumberPH1.Text = prepareNumbersPreview(sNumberType1, sCC1, iAC1, sNr1);
+                fPre.lblNumberPH2.Text = prepareNumbersPreview(sNumberType2, sCC2, iAC2, sNr2);
+                fPre.lblNumberPH3.Text = prepareNumbersPreview(sNumberType3, sCC3, iAC3, sNr3);
+                fPre.lblNumberPH4.Text = prepareNumbersPreview(sNumberType4, sCC4, iAC4, sNr4);
+
+                fPre.lblGenderPH.Text = prepareGenderPreview(iGender);
+
+                fPre.lblNamePH.Text = sName;
+                fPre.lblFirstNamePH.Text = sFirstName;
+                fPre.lblNickNamePH.Text = sNickName;
+                fPre.lblTitlePH.Text = sTitle;
+                fPre.lblStreetPH.Text = sStreet;
+                fPre.lblHouseNumberPH.Text = sHouseNr;
+                fPre.lblZipCodePH.Text = sZipCode;
+                fPre.lblCityPH.Text = sCity;
+                fPre.lblCountryPH.Text = sCountry;
+                fPre.lblWorkNamePH.Text = sWorkName;
+                fPre.lblStreetPH2.Text = sStreet2;
+                fPre.lblHouseNumberPH2.Text = sHouseNr2;
+                fPre.lblZipCodePH2.Text = sZipCode2;
+                fPre.lblCityPH2.Text = sCity2;
+                fPre.lblCountryPH2.Text = sCountry2;
+                fPre.lblNotesPH.Text = sNotes;
+
+                if (sBirthday != "  ,  ,") fPre.lblBirthdayPH.Text = dtBirthday.ToString("dddd, dd.MM.yyyy");
+                
+                fPre.pictureBoxContact.Image = imgContactImage;
+
+                fPre.Show();
+
+                return true;
             }
+            else return false;
         }
 
         private bool CheckIfOkay()
@@ -385,6 +426,19 @@ namespace Telefonbuch
             bool isOkay = true;
             string sMessage = "";
 
+            if (sBirthday != "  ,  ,")
+            {
+                try
+                {
+                    dtBirthday = DateTime.Parse(sBirthday);
+                }
+                catch (FormatException)
+                {
+                    isOkay = false;
+                    sMessage += "Das angegebene Geburtsdatum ist ungültig!\n";
+                }
+            }
+
             if (sMail1 != "" && (!sMail1.Contains("@") || !sMail1.Contains(".")))
             {
                 isOkay = false;
@@ -406,5 +460,74 @@ namespace Telefonbuch
             }
             return isOkay;
         }
+
+        #region "Preview preparation"
+
+        //Preview title
+        private string prepareShowAsPreview(string name, string firstName, string nickName, string title, string showAsType)
+        {
+            switch (showAsType)
+            {
+                case "NV":
+                    sSaveName = name + ", " + firstName + ".card";
+                    return name + ", " + firstName;
+                case "VN":
+                    sSaveName = firstName + " " + name + ".card";
+                    return firstName + " " + name;
+                case "NVS":
+                    sSaveName = name + ", " + firstName + " (\"" + nickName + "\").card";
+                    return name + ", " + firstName + " (\"" + nickName + "\")";
+                case "TVN":
+                    sSaveName = title + " " + firstName + " " + name + ".card";
+                    return title + " " + firstName + " " + name;
+                default:
+                    sSaveName = name + ", " + firstName + ".card";
+                    return name + ", " + firstName;
+            }
+        }
+
+        //Preview mail
+        private string prepareMailPreview(string email, string emailType)
+        {
+            if (email == "")
+            {
+                return "-----";
+            }
+            else
+            {
+                return email + " (" + emailType + ")";
+            }
+        }
+
+        //Preview numbers
+        private string prepareNumbersPreview(string numberType, string cc, int ac, string number)
+        {
+            if (ac == 0 && number == "")
+            {
+                return "-----";
+            }
+            else
+            {
+                return cc + " " + ac + "/" + number + " (" + numberType + ")";
+            }
+        }
+
+        //Preview gender
+        private string prepareGenderPreview(int gender)
+        {
+            switch (gender)
+            {
+                case 0:
+                    return "Weiblich";
+                case 1:
+                    return "Männlich";
+                case 2:
+                    return "Anderes";
+                default:
+                    return "-----";
+            }
+        }
+
+        #endregion
     }
 }
