@@ -10,6 +10,8 @@ namespace Telefonbuch
         #region "Constants"
         private const string sKEY = "DD)Fbsly9!K§s;*D";
         private const string sIV = "'8iV1N_yu,V5D4WU";
+        private const string sSUBPATH = "\\contacts\\";
+        internal const string FILETYPE = ".card";
         #endregion
 
         #region "Strings"
@@ -276,10 +278,51 @@ namespace Telefonbuch
         //Button "Öffnen"
         private void btnOpen_Click(object sender, EventArgs e)
         {
+            sPath = Directory.GetCurrentDirectory() + sSUBPATH;
+            string[] sFiles = Directory.GetFiles(sPath, FILETYPE);
+            
             formOpen openForm = new formOpen();
 
             openForm.CancelOpenForm += OpenCanceled;
             openForm.AcceptOpenForm += OpenAccepted;
+
+            int imageIndex = 0;
+
+            foreach (string file in sFiles)
+            {
+                Contact c = Contact.OpenContact(file, sKEY, sIV);
+                ListViewItem lvItem = new ListViewItem();
+
+                FileInfo fileInfo = new FileInfo(file);
+                string sShow = (fileInfo.Name).Replace(FILETYPE, "");
+
+                string sGender;
+                switch (c.iGender)
+                {
+                    case 0:
+                        sGender = "Weiblich";
+                        break;
+                    case 1:
+                        sGender = "Männlich";
+                        break;
+                    case 2:
+                        sGender = "Anderes";
+                        break;
+                    default:
+                        sGender = "-----";
+                        break;
+                }
+                
+                openForm.imageList.Images.Add(Contact.StringToImage(c.sContactImage));
+
+                lvItem.Text = sShow;
+                lvItem.ToolTipText = "Name:\t\t" + c.sName + "\nVorname:\t\t" + c.sFirstName + "\nSpitzname:\t\t" + c.sNickName + "\nTitel:\t\t" + c.sTitle + "\nGeschlecht:\t\t" + sGender;
+                lvItem.ImageIndex = imageIndex;
+                imageIndex++;
+                lvItem.SubItems.Add(file);
+
+                openForm.lvContacts.Items.Add(lvItem);
+            }
 
             openForm.Show();
         }
@@ -287,7 +330,7 @@ namespace Telefonbuch
         //Button "Save"
         private void btnSave_Click(object sender, EventArgs e)
         {
-            sPath = Directory.GetCurrentDirectory() + "\\contacts\\";
+            sPath = Directory.GetCurrentDirectory() + sSUBPATH;
             if (!Directory.Exists(sPath))
             {
                 Directory.CreateDirectory(sPath);

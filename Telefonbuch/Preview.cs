@@ -7,7 +7,7 @@ namespace Telefonbuch
     public class Preview
     {
         internal string sSaveName;
-
+        
         #region "Constructor-Variables"
 
         internal string sName;
@@ -465,19 +465,19 @@ namespace Telefonbuch
             switch (showAsType)
             {
                 case "NV":
-                    sSaveName = name + ", " + firstName + ".card";
+                    sSaveName = name + ", " + firstName + formMain.FILETYPE;
                     return name + ", " + firstName;
                 case "VN":
-                    sSaveName = firstName + " " + name + ".card";
+                    sSaveName = firstName + " " + name + formMain.FILETYPE;
                     return firstName + " " + name;
                 case "NVS":
-                    sSaveName = name + ", " + firstName + " (" + nickName + ").card";
+                    sSaveName = name + ", " + firstName + " (" + nickName + ")" + formMain.FILETYPE;
                     return name + ", " + firstName + " (" + nickName + ")";
                 case "TVN":
-                    sSaveName = title + " " + firstName + " " + name + ".card";
+                    sSaveName = title + " " + firstName + " " + name + formMain.FILETYPE;
                     return title + " " + firstName + " " + name;
                 default:
-                    sSaveName = name + ", " + firstName + ".card";
+                    sSaveName = name + ", " + firstName + formMain.FILETYPE;
                     return name + ", " + firstName;
             }
         }

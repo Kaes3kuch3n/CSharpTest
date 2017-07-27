@@ -19,65 +19,65 @@ namespace Telefonbuch
 
         #region "General Vars"
 
-        private string sName;
-        private string sFirstName;
-        private string sShowAs;
-        private int iGender;
-        private string sNickName;
-        private string sTitle;
-        private DateTime dtBirthday;
-        private string sContactImage;
+        internal string sName;
+        internal string sFirstName;
+        internal string sShowAs;
+        internal int iGender;
+        internal string sNickName;
+        internal string sTitle;
+        internal DateTime dtBirthday;
+        internal string sContactImage;
 
         #endregion
 
         #region "Phone Number Vars"
-        private string sNumberType1;
-        private string sNumberType2;
-        private string sNumberType3;
-        private string sNumberType4;
-        private string sNr1;
-        private string sNr2;
-        private string sNr3;
-        private string sNr4;
-        private string sCC1;
-        private string sCC2;
-        private string sCC3;
-        private string sCC4;
-        private int iAC1;
-        private int iAC2;
-        private int iAC3;
-        private int iAC4;
+        internal string sNumberType1;
+        internal string sNumberType2;
+        internal string sNumberType3;
+        internal string sNumberType4;
+        internal string sNr1;
+        internal string sNr2;
+        internal string sNr3;
+        internal string sNr4;
+        internal string sCC1;
+        internal string sCC2;
+        internal string sCC3;
+        internal string sCC4;
+        internal int iAC1;
+        internal int iAC2;
+        internal int iAC3;
+        internal int iAC4;
 
         #endregion
 
         #region "Address Vars"
 
-        private string sStreet;
-        private string sHouseNr;
-        private string sZipCode;
-        private string sCity;
-        private string sCountry;
+        internal string sStreet;
+        internal string sHouseNr;
+        internal string sZipCode;
+        internal string sCity;
+        internal string sCountry;
 
         #endregion
 
         #region "Work Address Vars"
 
-        private string sWorkName;
-        private string sStreet2;
-        private string sHouseNr2;
-        private string sZipCode2;
-        private string sCity2;
-        private string sCountry2;
+        internal string sWorkName;
+        internal string sStreet2;
+        internal string sHouseNr2;
+        internal string sZipCode2;
+        internal string sCity2;
+        internal string sCountry2;
 
         #endregion
 
         #region "Other Vars"
 
-        private string sMailType1;
-        private string sMailType2;
-        private string sMail1;
-        private string sMail2;
-        private string sNotes;
+        internal string sMailType1;
+        internal string sMailType2;
+        internal string sMail1;
+        internal string sMail2;
+        internal string sNotes;
 
         #endregion
 
@@ -217,7 +217,7 @@ namespace Telefonbuch
         }
 
         /// <summary>
-        /// Ersetzt unter Windows verbotene Zeichen im Dateinamen
+        /// Ersetzt unter Windows verbotene Zeichen im Dateinamen.
         /// </summary>
         /// <param name="text">Zu überarbeitender Dateiname</param>
         /// <returns>Gesäuberter Dateiname</returns>
@@ -236,7 +236,7 @@ namespace Telefonbuch
         }
 
         /// <summary>
-        /// Wandelt ein Image-Objekt in einen String um
+        /// Wandelt ein Image-Objekt in einen String um.
         /// </summary>
         /// <param name="img">Umzuwandelndes Bild</param>
         /// <param name="imgFormat">RawFormat des umzuwandelnden Bildes</param>
@@ -251,6 +251,20 @@ namespace Telefonbuch
             stream.Close();
 
             return sImg;
+        }
+
+        /// <summary>
+        /// Wandelt einen String in ein Image-Objekt um.
+        /// </summary>
+        /// <param name="sImage">Umzuwandelnder String</param>
+        /// <returns></returns>
+        public static Image StringToImage(string sImage)
+        {
+            MemoryStream stream = new MemoryStream(Convert.FromBase64String(sImage));
+            Image img = Image.FromStream(stream);
+            stream.Close();
+
+            return img;
         }
 
         #region "Crypto-Functions"
