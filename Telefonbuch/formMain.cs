@@ -276,9 +276,14 @@ namespace Telefonbuch
         //Button "Öffnen"
         private void btnOpen_Click(object sender, EventArgs e)
         {
+            formOpen openForm = new formOpen();
 
+            openForm.CancelOpenForm += OpenCanceled;
+            openForm.AcceptOpenForm += OpenAccepted;
+
+            openForm.Show();
         }
-
+        
         //Button "Save"
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -306,6 +311,18 @@ namespace Telefonbuch
         }
 
         #endregion
+
+        //Open contact
+        private void OpenAccepted(string file)
+        {
+            throw new NotImplementedException();
+        }
+
+        //Cancel open contact
+        private void OpenCanceled()
+        {
+            throw new NotImplementedException();
+        }
 
         //Save form content to vars
         void saveVars()
