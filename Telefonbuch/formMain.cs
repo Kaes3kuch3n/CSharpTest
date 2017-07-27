@@ -279,8 +279,210 @@ namespace Telefonbuch
         private void btnOpen_Click(object sender, EventArgs e)
         {
             sPath = Directory.GetCurrentDirectory() + sSUBPATH;
-            string[] sFiles = Directory.GetFiles(sPath, FILETYPE);
-            
+            OpenContact();
+        }
+        
+        //Button "Save"
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            sPath = Directory.GetCurrentDirectory() + sSUBPATH;
+            SaveContact();
+        }
+
+        //Custom open dir path
+        private void btnOpenCustom_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            folderBrowser.Description = "Kontakt-Ordner öffnen...";
+            folderBrowser.ShowNewFolderButton = false;
+
+            DialogResult dr = folderBrowser.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                sPath = folderBrowser.SelectedPath;
+                OpenContact();
+            }
+        }
+
+        //Custom save dir path
+        private void btnSaveCustom_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            folderBrowser.Description = "Kontakt speichern unter...";
+            folderBrowser.ShowNewFolderButton = true;
+
+            DialogResult dr = folderBrowser.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                sPath = folderBrowser.SelectedPath;
+                SaveContact();
+            }
+        }
+
+        #endregion
+
+        //Open contact
+        private void OpenAccepted(string file)
+        {
+            tabControlContactInfos.Visible = true;
+            tabControlContactInfos.Enabled = true;
+            btnPreview.Visible = true;
+            btnOpen.Visible = true;
+            btnSave.Visible = false;
+            btnEdit.Visible = false;
+            btnNew.Visible = false;
+
+            Contact c = new Contact();
+            c = Contact.OpenContact(file, sKEY, sIV);
+
+            switch (c.iGender)
+            {
+                case 0:
+                    rbFemale.Checked = true;
+                    break;
+                case 1:
+                    rbMale.Checked = true;
+                    break;
+                default:
+                    rbOther.Checked = true;
+                    break;
+            }
+
+            pictureBoxContact.Image = Contact.StringToImage(c.sContactImage);
+            txtName.Text = c.sName;
+            txtFirstName.Text = c.sFirstName;
+            txtNickname.Text = c.sNickName;
+            txtTitle.Text = c.sTitle;
+            txtBirthday.Text = c.dtBirthday.ToShortDateString();
+
+            txtStreet.Text = c.sStreet;
+            txtHouseNumber.Text = c.sHouseNr;
+            txtZipCode.Text = c.sZipCode;
+            txtCity.Text = c.sCity;
+            txtCountry.Text = c.sCountry;
+            txtWorkName.Text = c.sWorkName;
+            txtStreet2.Text = c.sStreet2;
+            txtHouseNumber2.Text = c.sHouseNr2;
+            txtZipCode2.Text = c.sZipCode2;
+            txtCity2.Text = c.sCity2;
+            txtCountry2.Text = c.sCountry2;
+
+            txtCC1.Text = c.sCC1;
+            txtCC2.Text = c.sCC2;
+            txtCC3.Text = c.sCC3;
+            txtCC4.Text = c.sCC4;
+            txtAC1.Text = c.iAC1.ToString();
+            txtAC2.Text = c.iAC2.ToString();
+            txtAC3.Text = c.iAC3.ToString();
+            txtAC4.Text = c.iAC4.ToString();
+            txtNumber1.Text = c.sNr1;
+            txtNumber2.Text = c.sNr2;
+            txtNumber3.Text = c.sNr3;
+            txtNumber4.Text = c.sNr4;
+            cbNumber1.SelectedIndex = SetSelectionNumbers(c.sNumberType1);
+            cbNumber2.SelectedIndex = SetSelectionNumbers(c.sNumberType2);
+            cbNumber3.SelectedIndex = SetSelectionNumbers(c.sNumberType3);
+            cbNumber4.SelectedIndex = SetSelectionNumbers(c.sNumberType4);
+
+            txtEmail1.Text = c.sMail1;
+            txtEmail2.Text = c.sMail2;
+            cbEmail1.SelectedIndex = SetSelectionMail(c.sMailType1);
+            cbEmail2.SelectedIndex = SetSelectionMail(c.sMailType2);
+            txtNotes.Text = c.sNotes;
+        }
+        private int SetSelectionNumbers(string sSel)
+        {
+            switch (sSel)
+            {
+                case "Privat":
+                    return 0;
+                case "Mobil":
+                    return 1;
+                case "Arbeit":
+                    return 2;
+                case "Andere":
+                    return 3;
+                default:
+                    return -1;
+            }
+        }
+        private int SetSelectionMail(string sSel)
+        {
+            switch (sSel)
+            {
+                case "Privat":
+                    return 0;
+                case "Arbeit":
+                    return 1;
+                case "Andere":
+                    return 2;
+                default:
+                    return -1;
+            }
+        }
+        private int SetSelectionShowAs(string sSel)
+        {
+            switch (sSel)
+            {
+                case "NV":
+                    return 0;
+                case "VN":
+                    return 1;
+                case "NVS":
+                    return 2;
+                case "TVN":
+                    return 3;
+                default:
+                    return -1;
+            }
+        }
+
+        //Cancel open contact
+        private void OpenCanceled()
+        {
+            btnNew.Visible = true;
+            btnEdit.Visible = false;
+            btnOpen.Visible = true;
+            btnPreview.Visible = false;
+            btnSave.Visible = false;
+            tabControlContactInfos.Enabled = true;
+            tabControlContactInfos.Visible = false;
+
+            ClearAllContent();
+        }
+
+        //Save
+        private void SaveContact()
+        {
+            if (!Directory.Exists(sPath))
+            {
+                Directory.CreateDirectory(sPath);
+            }
+
+            Contact c = new Contact(p);
+            if (c.SaveContact(sPath, sKEY, sIV))
+            {
+                MessageBox.Show("Der Kontakt wurde gespeichert!", "Gespeichert!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.btnNew.Visible = true;
+                this.btnOpen.Visible = true;
+                this.btnPreview.Visible = false;
+                this.btnEdit.Visible = false;
+                this.btnSave.Visible = false;
+                this.tabControlContactInfos.Enabled = true;
+                this.tabControlContactInfos.Visible = false;
+
+                ClearAllContent();
+            }
+        }
+
+        //Open
+        private void OpenContact()
+        {
+            string[] sFiles = Directory.GetFiles(sPath, "*" + FILETYPE);
+
             formOpen openForm = new formOpen();
 
             openForm.CancelOpenForm += OpenCanceled;
@@ -290,7 +492,8 @@ namespace Telefonbuch
 
             foreach (string file in sFiles)
             {
-                Contact c = Contact.OpenContact(file, sKEY, sIV);
+                Contact c = new Contact();
+                c = Contact.OpenContact(file, sKEY, sIV);
                 ListViewItem lvItem = new ListViewItem();
 
                 FileInfo fileInfo = new FileInfo(file);
@@ -312,11 +515,11 @@ namespace Telefonbuch
                         sGender = "-----";
                         break;
                 }
-                
+
                 openForm.imageList.Images.Add(Contact.StringToImage(c.sContactImage));
 
                 lvItem.Text = sShow;
-                lvItem.ToolTipText = "Name:\t\t" + c.sName + "\nVorname:\t\t" + c.sFirstName + "\nSpitzname:\t\t" + c.sNickName + "\nTitel:\t\t" + c.sTitle + "\nGeschlecht:\t\t" + sGender;
+                lvItem.ToolTipText = "Name:\t\t" + c.sName + "\nVorname:\t" + c.sFirstName + "\nSpitzname:\t" + c.sNickName + "\nTitel:\t" + c.sTitle + "\nGeschlecht:\t" + sGender;
                 lvItem.ImageIndex = imageIndex;
                 imageIndex++;
                 lvItem.SubItems.Add(file);
@@ -325,46 +528,6 @@ namespace Telefonbuch
             }
 
             openForm.Show();
-        }
-        
-        //Button "Save"
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            sPath = Directory.GetCurrentDirectory() + sSUBPATH;
-            if (!Directory.Exists(sPath))
-            {
-                Directory.CreateDirectory(sPath);
-            }
-
-            Contact c = new Contact(p);
-            if (c.SaveContact(sPath, sKEY, sIV))
-            {
-                MessageBox.Show("Der Kontakt wurde gespeichert!", "Gespeichert!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.btnNew.Visible = true;
-                this.btnOpen.Visible = true;
-                this.btnPreview.Visible = false;
-                this.btnEdit.Visible = false;
-                this.btnSave.Visible = false;
-                this.tabControlContactInfos.Enabled = true;
-                this.tabControlContactInfos.Visible = false;
-                
-                ClearAllContent();
-            }
-        }
-
-        #endregion
-
-        //Open contact
-        private void OpenAccepted(string file)
-        {
-            throw new NotImplementedException();
-        }
-
-        //Cancel open contact
-        private void OpenCanceled()
-        {
-            throw new NotImplementedException();
         }
 
         //Save form content to vars

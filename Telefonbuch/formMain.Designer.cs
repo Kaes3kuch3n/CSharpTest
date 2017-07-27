@@ -126,6 +126,10 @@
             this.txtEmail1 = new System.Windows.Forms.TextBox();
             this.lblEmail2 = new System.Windows.Forms.Label();
             this.lblEmail1 = new System.Windows.Forms.Label();
+            this.contextOpen = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextSave = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnOpenCustom = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSaveCustom = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlContactInfos.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBoxBirthday.SuspendLayout();
@@ -138,6 +142,8 @@
             this.groupBoxAddress1.SuspendLayout();
             this.tabPageOther.SuspendLayout();
             this.groupBoxEmail.SuspendLayout();
+            this.contextOpen.SuspendLayout();
+            this.contextSave.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNew
@@ -164,6 +170,7 @@
             // 
             // btnOpen
             // 
+            this.btnOpen.ContextMenuStrip = this.contextOpen;
             this.btnOpen.ImageIndex = 1;
             this.btnOpen.ImageList = this.imageListButtons;
             this.btnOpen.Location = new System.Drawing.Point(50, 12);
@@ -189,6 +196,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.ContextMenuStrip = this.contextSave;
             this.btnSave.ImageIndex = 3;
             this.btnSave.ImageList = this.imageListButtons;
             this.btnSave.Location = new System.Drawing.Point(126, 12);
@@ -1112,6 +1120,36 @@
             this.lblEmail1.TabIndex = 0;
             this.lblEmail1.Text = "#1:";
             // 
+            // contextOpen
+            // 
+            this.contextOpen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnOpenCustom});
+            this.contextOpen.Name = "contextOpen";
+            this.contextOpen.ShowImageMargin = false;
+            this.contextOpen.Size = new System.Drawing.Size(134, 26);
+            // 
+            // contextSave
+            // 
+            this.contextSave.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnSaveCustom});
+            this.contextSave.Name = "contextSave";
+            this.contextSave.ShowImageMargin = false;
+            this.contextSave.Size = new System.Drawing.Size(160, 48);
+            // 
+            // btnOpenCustom
+            // 
+            this.btnOpenCustom.Name = "btnOpenCustom";
+            this.btnOpenCustom.Size = new System.Drawing.Size(133, 22);
+            this.btnOpenCustom.Text = "Ordner öffnen...";
+            this.btnOpenCustom.Click += new System.EventHandler(this.btnOpenCustom_Click);
+            // 
+            // btnSaveCustom
+            // 
+            this.btnSaveCustom.Name = "btnSaveCustom";
+            this.btnSaveCustom.Size = new System.Drawing.Size(159, 22);
+            this.btnSaveCustom.Text = "Speicherort wählen...";
+            this.btnSaveCustom.Click += new System.EventHandler(this.btnSaveCustom_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1151,6 +1189,8 @@
             this.tabPageOther.PerformLayout();
             this.groupBoxEmail.ResumeLayout(false);
             this.groupBoxEmail.PerformLayout();
+            this.contextOpen.ResumeLayout(false);
+            this.contextSave.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1253,6 +1293,10 @@
         private System.Windows.Forms.Label lblWorkName;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.MaskedTextBox txtBirthday;
+        private System.Windows.Forms.ContextMenuStrip contextOpen;
+        private System.Windows.Forms.ToolStripMenuItem btnOpenCustom;
+        private System.Windows.Forms.ContextMenuStrip contextSave;
+        private System.Windows.Forms.ToolStripMenuItem btnSaveCustom;
     }
 }
 

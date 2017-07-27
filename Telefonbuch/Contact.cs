@@ -202,7 +202,7 @@ namespace Telefonbuch
 
                 return (Contact)formatter.Deserialize(cryptoStream);
             }
-            catch (Exception)
+            catch (FileNotFoundException)
             {
                 MessageBox.Show("Der Kontakt konnte nicht geöffnet werden!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;

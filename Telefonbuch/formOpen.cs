@@ -26,8 +26,11 @@ namespace Telefonbuch
         //Button "Öffnen"
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            AcceptOpenForm("");
-            Close();
+            if (lvContacts.SelectedItems.Count != 0)
+            {
+                AcceptOpenForm(lvContacts.SelectedItems[0].SubItems[1].Text);
+                Close();
+            }
         }
 
         //Button "Abbrechen"
