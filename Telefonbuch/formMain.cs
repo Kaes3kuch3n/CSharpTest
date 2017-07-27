@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Telefonbuch
@@ -321,6 +315,7 @@ namespace Telefonbuch
             sNickName = txtNickname.Text;
             sTitle = txtTitle.Text;
             sBirthday = txtBirthday.Text;
+            imgContact = pictureBoxContact.Image;
             sStreet = txtStreet.Text;
             sHouseNumber = txtHouseNumber.Text;
             sZipCode = txtZipCode.Text;
@@ -386,7 +381,8 @@ namespace Telefonbuch
             txtEmail1.Text = "";
             cbEmail2.SelectedIndex = -1;
             txtEmail2.Text = "";
-            pictureBoxContact.Image = Telefonbuch.Properties.Resources.contact;
+            pictureBoxContact.Image = Properties.Resources.contact;
+            imgContact = Properties.Resources.contact;
             cbShowAs.SelectedIndex = -1;
             rbFemale.Checked = true;
             txtNotes.Text = "";

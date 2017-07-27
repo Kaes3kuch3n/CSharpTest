@@ -29,7 +29,7 @@ namespace Telefonbuch
         private string sContactImage;
 
         #endregion
-        
+
         #region "Phone Number Vars"
         private string sNumberType1;
         private string sNumberType2;
@@ -82,7 +82,15 @@ namespace Telefonbuch
         #endregion
 
         /// <summary>
-        /// Konstruktor der Klasse Contact.
+        /// Konstruktor zum Erstellen eines leeren Contact-Objekts.
+        /// </summary>
+        public Contact()
+        {
+
+        }
+
+        /// <summary>
+        /// Konstruktor der Klasse Contact. Erstellt ein neues Objekt Contact aus einem Preview-Objekt.
         /// </summary>
         /// <param name="p">Preview-Objekt, aus dem der Kontakt erstellt werden soll</param>
         public Contact(Preview p)
@@ -176,6 +184,39 @@ namespace Telefonbuch
         }
 
         /// <summary>
+        /// Lädt einen Kontakt aus einer Datei.
+        /// </summary>
+        /// <param name="file">Datei, aus der der Kontakt geladen werden soll.</param>
+        /// <returns></returns>
+        public static Contact OpenContact(string file, string key, string iv)
+        {
+            FileStream stream = null;
+            CryptoStream cryptoStream = null;
+            BinaryFormatter formatter = null;
+
+            try
+            {
+                stream = new FileStream(file, FileMode.Open);
+                cryptoStream = new CryptoStream(stream, StaticCryptByKey(key, iv).CreateDecryptor(), CryptoStreamMode.Read);
+                formatter = new BinaryFormatter();
+
+                return (Contact)formatter.Deserialize(cryptoStream);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Der Kontakt konnte nicht geöffnet werden!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                stream.Flush();
+                cryptoStream.Flush();
+                cryptoStream.Close();
+                stream.Close();
+            }
+        }
+
+        /// <summary>
         /// Ersetzt unter Windows verbotene Zeichen im Dateinamen
         /// </summary>
         /// <param name="text">Zu überarbeitender Dateiname</param>
@@ -212,6 +253,8 @@ namespace Telefonbuch
             return sImg;
         }
 
+        #region "Crypto-Functions"
+
         private Rijndael CryptByKey(string key, string iv)
         {
             Rijndael rj = Rijndael.Create();
@@ -232,5 +275,28 @@ namespace Telefonbuch
                 return key.PadRight(16, (char)(90 - key.Length));
             }
         }
+
+        private static Rijndael StaticCryptByKey(string key, string iv)
+        {
+            Rijndael rj = Rijndael.Create();
+            rj.Key = ASCIIEncoding.ASCII.GetBytes(StaticPaddKey(key));
+            rj.IV = ASCIIEncoding.ASCII.GetBytes(StaticPaddKey(iv));
+            rj.Padding = PaddingMode.Zeros;
+            return rj;
+        }
+
+        private static string StaticPaddKey(string key)
+        {
+            if (key.Length % 2 == 0)
+            {
+                return key.PadLeft(16, (char)(key.Length + 64));
+            }
+            else
+            {
+                return key.PadRight(16, (char)(90 - key.Length));
+            }
+        }
+
+        #endregion
     }
 }
